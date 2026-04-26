@@ -160,65 +160,89 @@
             </div>
         </div>
     </section>
-
-    <section id="projects" class="py-20 md:py-24 px-6 bg-slate-900/30">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Featured Research</h3>
-            <div class="glass p-6 md:p-8 rounded-3xl border-accent/20">
-                <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h4 class="text-accent font-mono text-xs md:text-sm mb-2">Final Year Project</h4>
-                        <h5 class="text-xl md:text-2xl font-bold mb-4 leading-tight">Social Media Sentiment & Stock Price Impact Analysis</h5>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                            Designed an NLP pipeline using Python to predict stock oscillations via Twitter sentiment. Achieved 94.11% accuracy with a Random Forest model.
+    <section id="projects" class="py-24 px-6 bg-slate-900/40">
+    <div class="max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold mb-16 text-center text-white">Featured Research & Engineering</h3>
+        
+        <div class="space-y-12">
+            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-accent/30 hover:border-accent/60 transition-all duration-500 group">
+                <div class="flex flex-col lg:flex-row gap-10 items-center">
+                    <div class="lg:w-3/5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
+                            <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                            <span class="text-green-400 text-[10px] font-bold uppercase tracking-tighter">Live on AWS</span>
+                        </div>
+                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Agentic AI Automated Trading Pipeline</h4>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            An autonomous cloud ecosystem executing daily market analysis on 11 assets. Orchestrated with <span class="text-white font-semibold">four sequential AI agents</span> handling technical analysis, News NLP sentiment, signal generation, and risk governance.
                         </p>
-                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                            <div class="flex gap-2 text-[10px] md:text-xs font-mono">
-                                <span class="bg-slate-800 px-3 py-1 rounded">Python</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded">NLP</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded">Random Forest</span>
-                            </div>
-                            <a href="https://github.com/goyumsamuditha/Final-Year-Project.git" target="_blank" class="text-accent text-xs md:text-sm font-bold flex items-center hover:underline">
-                                <i class="fab fa-github mr-2"></i> View Code
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Python 3.13</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Random Forest</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">AWS Lambda & RDS</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Streamlit</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="http://51.21.249.209:8501/" target="_blank" class="bg-accent hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg shadow-blue-500/20">View Live Dashboard</a>
+                            <a href="https://github.com/goyumsamuditha/Automated_Trading_Agent.git" target="_blank" class="text-slate-300 hover:text-white font-bold flex items-center transition">
+                                <i class="fab fa-github mr-2 text-xl"></i> View Repo
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-1/2 w-full bg-slate-800/50 rounded-xl flex items-center justify-center p-6 text-center">
-                        <div>
-                            <p class="text-3xl md:text-4xl font-bold text-accent">94.1%</p>
-                            <p class="text-[10px] md:text-xs text-slate-500 uppercase tracking-widest mt-2">Prediction Accuracy</p>
+                    <div class="lg:w-2/5 w-full">
+                        <div class="bg-slate-800/50 rounded-3xl p-8 border border-slate-700 text-center shadow-inner relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-4 opacity-10">
+                                <i class="fas fa-brain text-7xl"></i>
+                            </div>
+                            <p class="text-5xl font-black text-accent mb-2">60.75%</p>
+                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Model Accuracy</p>
+                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-white font-bold">13</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Features </p>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold">8:00 AM</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Daily Trigger</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all">
+                <div class="flex flex-col lg:flex-row-reverse gap-10 items-center">
+                    <div class="lg:w-3/5">
+                        <h4 class="text-accent font-mono text-xs mb-4 tracking-widest uppercase">Final Year Research</h4>
+                        <h5 class="text-3xl md:text-4xl font-bold mb-6 text-white">Sentiment & Stock Price Impact Analysis</h5>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            Research on the correlation between social media sentiment and market oscillations. Developed a custom pipeline to analyze Twitter sentiment impact on CSE stock movements.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8 text-white">
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs">Python</span>
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs">NLP</span>
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs">TextBlob</span>
+                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs">Scikit-Learn</span>
+                        </div>
+                        <a href="https://github.com/goyumsamuditha/Final-Year-Project" target="_blank" class="text-accent font-bold flex items-center hover:underline">
+                            <i class="fab fa-github mr-2"></i> View Repo
+                        </a>
+                    </div>
+                    <div class="lg:w-2/5 w-full">
+                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center">
+                            <p class="text-5xl font-black text-white/90 mb-2">94.1%</p>
+                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Prediction Accuracy</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-     <section class="py-20 md:py-24 px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-8">Education</h3>
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-bold text-sm md:text-base">MSc Data Science</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">Coventry University, UK</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm md:text-base">BSc (Hons) Business Analytics</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">University of Moratuwa, Sri Lanka</p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-8">Top Skills Summary</h3>
-            <ul class="text-slate-400 text-xs md:text-sm space-y-3">
-                <li><i class="fas fa-check-circle text-accent mr-2"></i> Machine Learning & Predictive Modeling</li>
-                <li><i class="fas fa-check-circle text-accent mr-2"></i> Python & R Scripting</li>
-                <li><i class="fas fa-check-circle text-accent mr-2"></i> Big Data Foundations (IBM)</li>
-                <li><i class="fas fa-check-circle text-accent mr-2"></i> Power BI Dashboards</li>
-            </ul>
-        </div>
-    </section>
-    <section id="certifications" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
+        <section id="certifications" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
         <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center"><span class="text-accent mr-3"></span> Certifications & Training</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="glass p-5 rounded-xl border-l-4 border-accent">
@@ -301,7 +325,25 @@
                     Read Full Article →
                 </a>
             </div>
-        </article>        
+        </article> 
+        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent">
+            <p class="text-accent font-mono text-[10px] uppercase mb-2">Business Intelligence</p>
+            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight">
+                Exploring Global Development Indicators with Power BI
+            </h4>
+            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
+                A deep dive into World Bank Open Data analyzing the correlation between GDP, public health, and education using DAX and Star Schema modeling
+            </p>
+            <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-500">Published on LinkedIn</span>
+                <a href="https://www.linkedin.com/posts/goyum-samuditha_powerbi-dataanalytics-datavisualization-activity-7427261144014356480-zin1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" 
+                   target="_blank" 
+                   class="text-accent font-bold hover:underline">
+                    Read Full Article →
+                </a>
+            </div>
+        </article> 
+
     </div>
 </section>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0f1a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+        body { background-color: #0b0f1a; color: #e2e8f0; font-family: 'Inter', sans-serif; overflow-x: hidden; width: 100%; }
         .text-accent { color: #f97316; }
         .bg-accent { background-color: #f97316; }
         .border-accent { border-color: #f97316; }
@@ -161,7 +161,7 @@
         #home h2 { animation: fadeInUp 0.7s 0.3s both; }
         #home h1 { animation: heroHeading 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
         #home p  { animation: fadeInUp 0.7s 0.7s both; }
-        #home .flex.justify-center.md\:justify-start { animation: fadeInUp 0.7s 0.9s both; }
+        #home .flex.justify-center.md::justify-start { animation: fadeInUp 0.7s 0.9s both; }
         #home .relative.group { animation: floatPhoto 6s ease-in-out infinite; }
         #home .relative.group > div:first-child { animation: glowPulse 3s ease-in-out infinite; }
         #home .relative.group .relative.w-56 { overflow: hidden; }
@@ -580,7 +580,7 @@
 <canvas id="particle-canvas"></canvas>
 
 <nav class="fixed w-full z-50 glass top-0 py-4 px-4 md:px-12 flex justify-between items-center">
-    <div class="text-lg md:text-xl font-bold tracking-tight">GOYUM<span class="text-accent uppercase"> SAMUDITHA</span></div>
+    <div class="text-base md:text-xl font-bold tracking-tight shrink-0">GOYUM<span class="text-accent uppercase"> SAMUDITHA</span></div>
     
     <div class="hidden md:flex space-x-8 text-sm font-medium">
         <a href="#home" class="hover:text-accent transition">Home</a>
@@ -595,24 +595,24 @@
         <a href="#contact" class="hover:text-accent transition">Contact</a>
     </div>
     
-    <div class="flex items-center gap-4">
-        <a href="mailto:goyumsamuditha@gmail.com" class="bg-accent text-white px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-orange-600 transition">Hire Me</a>
-        <button id="mobile-menu-btn" class="md:hidden text-white hover:text-accent focus:outline-none text-xl p-2" aria-label="Toggle Navigation Menu">
+    <div class="flex items-center gap-2 md:gap-4">
+        <a href="mailto:goyumsamuditha@gmail.com" class="bg-accent text-white px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-orange-600 transition shrink-0">Hire Me</a>
+        <button id="mobile-menu-btn" class="md:hidden text-white hover:text-accent focus:outline-none text-xl p-2 shrink-0" aria-label="Toggle Navigation Menu">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 
-    <div id="mobile-drawer" class="hidden absolute top-full left-0 w-full bg-[#0b0f1a]/95 backdrop-blur-lg border-b border-white/5 flex flex-col px-6 py-6 space-y-4 text-sm font-medium transition-all duration-300 shadow-2xl">
-        <a href="#home" class="mobile-link hover:text-accent transition py-1">Home</a>
-        <a href="#about" class="mobile-link hover:text-accent transition py-1">About</a>
-        <a href="#education" class="mobile-link hover:text-accent transition py-1">Education</a>
-        <a href="#skills" class="mobile-link hover:text-accent transition py-1">Skills</a>
-        <a href="#experience" class="mobile-link hover:text-accent transition py-1">Experience</a>
-        <a href="#projects" class="mobile-link hover:text-accent transition py-1">Projects</a>
-        <a href="#certifications" class="mobile-link hover:text-accent transition py-1">Certifications</a>
-        <a href="#blog" class="mobile-link hover:text-accent transition py-1">Articles</a>
-        <a href="#resume-download" class="mobile-link hover:text-accent transition py-1">Resume</a>
-        <a href="#contact" class="mobile-link hover:text-accent transition py-1">Contact</a>
+    <div id="mobile-drawer" class="hidden absolute top-full left-0 w-full bg-[#0b0f1a]/95 backdrop-blur-lg border-b border-white/5 flex flex-col px-6 py-6 space-y-3 text-sm font-medium transition-all duration-300 shadow-2xl max-h-[85vh] overflow-y-auto">
+        <a href="#home" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Home</a>
+        <a href="#about" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">About</a>
+        <a href="#education" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Education</a>
+        <a href="#skills" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Skills</a>
+        <a href="#experience" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Experience</a>
+        <a href="#projects" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Projects</a>
+        <a href="#certifications" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Certifications</a>
+        <a href="#blog" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Articles</a>
+        <a href="#resume-download" class="mobile-link hover:text-accent transition py-2 border-b border-white/5">Resume</a>
+        <a href="#contact" class="mobile-link hover:text-accent transition py-2">Contact</a>
     </div>
 </nav>
 
@@ -633,122 +633,122 @@
     });
 </script>
 
-<section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center pt-24 md:pt-20 px-6 max-w-7xl mx-auto gap-12">
-    <div class="text-center md:text-left flex-1">
-        <h2 class="text-accent font-mono mb-4 tracking-widest uppercase text-xs md:text-sm">Data Analyst | Data Scientist</h2>
-        <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Goyum Samuditha</h1>
-        <p class="max-w-2xl mx-auto md:mx-0 text-slate-400 text-base md:text-lg mb-10 leading-relaxed">
+<section id="home" class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center pt-28 md:pt-20 pb-12 px-4 sm:px-6 max-w-7xl mx-auto gap-8 md:gap-12">
+    <div class="text-center md:text-left flex-1 w-full">
+        <h2 class="text-accent font-mono mb-3 tracking-widest uppercase text-[11px] sm:text-xs md:text-sm">Data Analyst | Data Scientist</h2>
+        <h1 class="text-3xl sm:text-4xl md:text-7xl font-extrabold mb-4 md:mb-6 leading-tight break-words">Goyum Samuditha</h1>
+        <p class="max-w-2xl mx-auto md:mx-0 text-slate-400 text-sm sm:text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
             Results-driven professional with 3+ years of experience in data-driven process improvement and operational analytics within high-availability telecom environments.
         </p>
         <div class="flex justify-center md:justify-start space-x-4">
-            <a href="https://github.com/goyumsamuditha" target="_blank" class="bg-accent hover:bg-orange-600 px-6 md:px-8 py-3 rounded-md font-bold transition flex items-center text-sm md:text-base"><i class="fab fa-github mr-2"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/goyum-samuditha" target="_blank" class="border border-slate-700 hover:border-accent px-6 md:px-8 py-3 rounded-md font-bold transition text-sm md:text-base">LinkedIn</a>
+            <a href="https://github.com/goyumsamuditha" target="_blank" class="bg-accent hover:bg-orange-600 px-5 sm:px-8 py-3 rounded-md font-bold transition flex items-center text-xs sm:text-base"><i class="fab fa-github mr-2"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/goyum-samuditha" target="_blank" class="border border-slate-700 hover:border-accent px-5 sm:px-8 py-3 rounded-md font-bold transition flex items-center text-xs sm:text-base">LinkedIn</a>
         </div>
     </div>
-    <div class="flex justify-center flex-1">
+    <div class="flex justify-center flex-1 w-full">
         <div class="relative group">
             <div class="absolute -inset-1 bg-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-            <div class="relative w-56 h-56 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-slate-800 glass">
+            <div class="relative w-44 h-44 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-slate-800 glass">
                 <img src="profile.jpg" alt="Goyum Samuditha" class="w-full h-full object-cover">
             </div>
         </div>
     </div>
 </section>
 
-<section id="about" class="py-20 md:py-24 px-6 max-w-5xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<section id="about" class="py-16 md:py-24 px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div class="reveal-left">
-            <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 flex items-center">
                 <span class="text-accent mr-3"></span> About Me
             </h3>
-            <p class="text-slate-400 mb-6 text-sm md:text-base">
+            <p class="text-slate-400 mb-4 md:mb-6 text-sm md:text-base leading-relaxed">
                 I am adept at translating complex business needs into scalable data solutions. Currently, I am pursuing an <span class="text-white font-semibold">MSc in Data Science at Coventry University</span> to deepen my expertise in machine learning and big data analytics.
             </p>
-            <p class="text-slate-400 text-sm md:text-base">
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
                 My background spans across DevOps, ERP analysis, and network operations, giving me a unique perspective on technical infrastructure and business intelligence.
             </p>
         </div>
         <div class="grid grid-cols-2 gap-4 reveal-right">
             <div class="glass p-4 md:p-6 rounded-lg text-center">
-                <h4 class="text-2xl md:text-3xl font-bold text-accent stat-val">3+</h4>
-                <p class="text-[10px] md:text-xs text-slate-500 uppercase mt-2">Years Experience</p>
+                <h4 class="text-xl sm:text-2xl md:text-3xl font-bold text-accent stat-val">3+</h4>
+                <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-500 uppercase mt-2 tracking-wider">Years Experience</p>
             </div>
             <div class="glass p-4 md:p-6 rounded-lg text-center">
-                <h4 class="text-2xl md:text-3xl font-bold text-accent stat-val">99.9%</h4>
-                <p class="text-[10px] md:text-xs text-slate-500 uppercase mt-2">System Reliability</p>
+                <h4 class="text-xl sm:text-2xl md:text-3xl font-bold text-accent stat-val">99.9%</h4>
+                <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-500 uppercase mt-2 tracking-wider">System Reliability</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="education" class="py-20 md:py-24 px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+<section id="education" class="py-16 md:py-24 px-4 sm:px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
     <div class="reveal-left">
-        <h3 class="text-xl md:text-2xl font-bold mb-8">Education</h3>
-        <div class="space-y-6">
-            <div>
-                <h4 class="font-bold text-sm md:text-base">MSc Data Science</h4>
-                <p class="text-slate-400 text-xs md:text-sm">Coventry University, UK</p>
+        <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-6 md:mb-8">Education</h3>
+        <div class="space-y-5 md:space-y-6">
+            <div class="border-l-2 border-accent/30 pl-4">
+                <h4 class="font-bold text-sm sm:text-base">MSc Data Science</h4>
+                <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Coventry University, UK</p>
             </div>
-            <div>
-                <h4 class="font-bold text-sm md:text-base">BSc (Hons) Business Analytics</h4>
-                <p class="text-slate-400 text-xs md:text-sm">University of Moratuwa, Sri Lanka</p>
+            <div class="border-l-2 border-accent/30 pl-4">
+                <h4 class="font-bold text-sm sm:text-base">BSc (Hons) Business Analytics</h4>
+                <p class="text-slate-400 text-xs sm:text-sm mt-0.5">University of Moratuwa, Sri Lanka</p>
             </div>
         </div>
     </div>
     <div class="reveal-right">
-        <h3 class="text-xl md:text-2xl font-bold mb-8">Top Skills Summary</h3>
-        <ul class="text-slate-400 text-xs md:text-sm space-y-3">
-            <li><i class="fas fa-check-circle text-accent mr-2"></i> Machine Learning & Predictive Modeling</li>
-            <li><i class="fas fa-check-circle text-accent mr-2"></i> Python & R Scripting</li>
-            <li><i class="fas fa-check-circle text-accent mr-2"></i> Big Data Foundations (IBM)</li>
-            <li><i class="fas fa-check-circle text-accent mr-2"></i> Power BI Dashboards</li>
+        <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-6 md:mb-8">Top Skills Summary</h3>
+        <ul class="text-slate-400 text-xs sm:text-sm space-y-3">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mt-0.5 mr-2 shrink-0"></i> <span>Machine Learning & Predictive Modeling</span></li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mt-0.5 mr-2 shrink-0"></i> <span>Python & R Scripting</span></li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mt-0.5 mr-2 shrink-0"></i> <span>Big Data Foundations (IBM)</span></li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mt-0.5 mr-2 shrink-0"></i> <span>Power BI Dashboards</span></li>
         </ul>
     </div>
 </section>
 
-<section id="skills" class="py-20 md:py-24 px-6 bg-slate-900/30">
+<section id="skills" class="py-16 md:py-24 px-4 sm:px-6 bg-slate-900/30">
     <div class="max-w-6xl mx-auto">
-        <h3 class="text-2xl md:text-3xl font-bold mb-12 md:mb-16 text-center reveal">Technical Arsenal</h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger">
-            <div class="glass p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 text-accent skill-icon-wrap">
-                    <i class="fas fa-chart-pie md:text-xl"></i>
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-16 text-center reveal">Technical Arsenal</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger">
+            <div class="glass p-5 sm:p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
+                <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 text-accent skill-icon-wrap">
+                    <i class="fas fa-chart-pie text-sm sm:text-base md:text-xl"></i>
                 </div>
-                <h4 class="text-lg md:text-xl font-bold mb-4">Analytics</h4>
-                <ul class="text-slate-400 text-xs md:text-sm space-y-2">
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">Analytics</h4>
+                <ul class="text-slate-400 text-xs sm:text-sm space-y-2">
                     <li>Python & R</li>
                     <li>SQL & NoSQL</li>
                     <li>Power BI & Tableau</li>
                 </ul>
             </div>
-            <div class="glass p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 text-accent skill-icon-wrap">
-                    <i class="fas fa-microchip md:text-xl"></i>
+            <div class="glass p-5 sm:p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
+                <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 text-accent skill-icon-wrap">
+                    <i class="fas fa-microchip text-sm sm:text-base md:text-xl"></i>
                 </div>
-                <h4 class="text-lg md:text-xl font-bold mb-4">Data Science</h4>
-                <ul class="text-slate-400 text-xs md:text-sm space-y-2">
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">Data Science</h4>
+                <ul class="text-slate-400 text-xs sm:text-sm space-y-2">
                     <li>Machine Learning</li>
                     <li>Predictive Analytics</li>
                     <li>NLP / TextBlob</li>
                 </ul>
             </div>
-            <div class="glass p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 text-accent skill-icon-wrap">
-                    <i class="fas fa-briefcase md:text-xl"></i>
+            <div class="glass p-5 sm:p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
+                <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 text-accent skill-icon-wrap">
+                    <i class="fas fa-briefcase text-sm sm:text-base md:text-xl"></i>
                 </div>
-                <h4 class="text-lg md:text-xl font-bold mb-4">Business</h4>
-                <ul class="text-slate-400 text-xs md:text-sm space-y-2">
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">Business</h4>
+                <ul class="text-slate-400 text-xs sm:text-sm space-y-2">
                     <li>Agile/Scrum</li>
                     <li>UAT & Stakeholders</li>
                     <li>Workflow Design</li>
                 </ul>
             </div>
-            <div class="glass p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 text-accent skill-icon-wrap">
-                    <i class="fas fa-robot md:text-xl"></i>
+            <div class="glass p-5 sm:p-6 md:p-8 rounded-2xl card-hover reveal glass-glow">
+                <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 text-accent skill-icon-wrap">
+                    <i class="fas fa-robot text-sm sm:text-base md:text-xl"></i>
                 </div>
-                <h4 class="text-lg md:text-xl font-bold mb-4">AI Tools</h4>
-                <ul class="text-slate-400 text-xs md:text-sm space-y-2">
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">AI Tools</h4>
+                <ul class="text-slate-400 text-xs sm:text-sm space-y-2">
                     <li>GitHub Copilot</li>
                     <li>Gemini & Claude</li>
                     <li>ChatGPT</li>
@@ -758,81 +758,84 @@
     </div>
 </section>
 
-<section id="experience" class="py-20 md:py-24 px-6 max-w-4xl mx-auto" style="overflow:visible;">
-    <h3 class="text-2xl md:text-3xl font-bold mb-12 reveal"><span class="text-accent mr-3"></span> Experience</h3>
-    <div class="space-y-12 border-l-2 border-slate-800 ml-2 md:ml-4 pl-6 md:pl-8" style="overflow:visible;">
+<section id="experience" class="py-16 md:py-24 px-4 sm:px-6 max-w-4xl mx-auto" style="overflow:visible;">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-12 reveal"><span class="text-accent mr-3"></span> Experience</h3>
+    <div class="space-y-10 md:space-y-12 border-l-2 border-slate-800 ml-1 sm:ml-2 md:ml-4 pl-5 sm:pl-6 md:pl-8" style="overflow:visible;">
         <div class="relative reveal" style="overflow:visible;">
-            <div class="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-accent timeline-dot"></div>
-            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Senior Business Analyst</h4>
-            <p class="text-accent text-xs md:text-sm mb-4">BitSlize Concepts (Pvt) Ltd | Jan 2025 - Present</p>
-            <p class="text-slate-400 text-sm">Leads end-to-end process identification and gap analysis, delivering improvement recommendations across business units.</p>
+            <div class="absolute -left-[28px] sm:-left-[33px] md:-left-[41px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent timeline-dot"></div>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-glow-hover">Senior Business Analyst</h4>
+            <p class="text-accent text-[11px] sm:text-xs md:text-sm mb-2 sm:mb-4">BitSlize Concepts (Pvt) Ltd | Jan 2025 - Present</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Leads end-to-end process identification and gap analysis, delivering improvement recommendations across business units.</p>
         </div>
         <div class="relative reveal" style="overflow:visible;">
-            <div class="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700 timeline-dot"></div>
-            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Associate DevOps Engineer</h4>
-            <p class="text-accent text-xs md:text-sm mb-4">Dialog Axiata PLC | Dec 2023 - Dec 2024</p>
-            <p class="text-slate-400 text-sm">Developed workflow automation improving end-to-end operational visibility by 30%+.</p>
+            <div class="absolute -left-[28px] sm:-left-[33px] md:-left-[41px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-700 timeline-dot"></div>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-glow-hover">Associate DevOps Engineer</h4>
+            <p class="text-accent text-[11px] sm:text-xs md:text-sm mb-2 sm:mb-4">Dialog Axiata PLC | Dec 2023 - Dec 2024</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Developed workflow automation improving end-to-end operational visibility by 30%+.</p>
         </div>
         <div class="relative reveal" style="overflow:visible;">
-            <div class="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700 timeline-dot"></div>
-            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Junior ERP Functional Analyst</h4>
-            <p class="text-accent text-xs md:text-sm mb-4">SPIL Labs | Sep 2023 - Nov 2023</p>
-            <p class="text-slate-400 text-sm">Supported ERP operational reporting and resolved issues, reducing average resolution turnaround by 20%.</p>
+            <div class="absolute -left-[28px] sm:-left-[33px] md:-left-[41px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-700 timeline-dot"></div>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-glow-hover">Junior ERP Functional Analyst</h4>
+            <p class="text-accent text-[11px] sm:text-xs md:text-sm mb-2 sm:mb-4">SPIL Labs | Sep 2023 - Nov 2023</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Supported ERP operational reporting and resolved issues, reducing average resolution turnaround by 20%.</p>
         </div>
         <div class="relative reveal" style="overflow:visible;">
-            <div class="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700 timeline-dot"></div>
-            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Network Operations Intern</h4>
-            <p class="text-accent text-xs md:text-sm mb-4">Dialog Axiata PLC | Nov 2022 - Sep 2023</p>
-            <p class="text-slate-400 text-sm">Supported 24/7 real-time system monitoring and service assurance for a live production environment.</p>
+            <div class="absolute -left-[28px] sm:-left-[33px] md:-left-[41px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-700 timeline-dot"></div>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-glow-hover">Network Operations Intern</h4>
+            <p class="text-accent text-[11px] sm:text-xs md:text-sm mb-2 sm:mb-4">Dialog Axiata PLC | Nov 2022 - Sep 2023</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Supported 24/7 real-time system monitoring and service assurance for a live production environment.</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="py-24 px-6 bg-slate-900/40">
+<section id="projects" class="py-16 md:py-24 px-4 sm:px-6 bg-slate-900/40">
     <div class="max-w-6xl mx-auto">
-        <h3 class="text-3xl font-bold mb-16 text-center text-white reveal">Featured Research & Engineering</h3>
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-16 text-center text-white reveal">Featured Research & Engineering</h3>
         
-        <div class="space-y-12">
-            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-accent/30 hover:border-accent/60 transition-all duration-500 group reveal animated-border">
-                <div class="flex flex-col lg:flex-row gap-10 items-center">
-                    <div class="lg:w-3/5">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
-                            <span class="live-ping flex h-2 w-2 rounded-full bg-green-500"></span>
-                            <span class="text-green-400 text-[10px] font-bold uppercase tracking-tighter">Live on AWS</span>
+        <div class="space-y-6 sm:space-y-8 md:space-y-12">
+            
+            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-accent/30 hover:border-accent/60 transition-all duration-500 group reveal animated-border">
+                <div class="flex flex-col lg:flex-row gap-6 md:gap-10 items-center">
+                    <div class="lg:w-3/5 w-full">
+                        <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 md:mb-4">
+                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="live-ping flex h-2 w-2 rounded-full bg-green-500"></span>
+                                <span class="text-green-400 text-[10px] font-bold uppercase tracking-tighter">Live on AWS</span>
+                            </div>
                         </div>
-                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Agentic AI Automated Trading Pipeline</h4>
-                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Agentic AI Automated Trading Pipeline</h4>
+                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
                             An autonomous cloud ecosystem executing daily market analysis on 11 assets. Orchestrated with <span class="text-white font-semibold">four sequential AI agents</span> handling technical analysis, News NLP sentiment, signal generation, and risk governance.
                         </p>
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Python 3.13</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Random Forest</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">AWS Lambda & RDS</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Streamlit</span>
+                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Python 3.13</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Random Forest</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">AWS Lambda & RDS</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Streamlit</span>
                         </div>
-                        <div class="flex items-center gap-6">
-                            <a href="http://51.21.249.209:8502/" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg shadow-orange-500/20">View Live Dashboard</a>
-                            <a href="https://github.com/goyumsamuditha/Automated_Trading_Agent.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline">
+                        <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                            <a href="http://51.21.249.209:8502/" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-5 sm:px-8 rounded-xl transition shadow-lg shadow-orange-500/20 text-xs sm:text-base">View Live Dashboard</a>
+                            <a href="https://github.com/goyumsamuditha/Automated_Trading_Agent.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
                                 <i class="fab fa-github mr-2"></i> View Repo
                             </a>
                         </div>
                     </div>
                     <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/50 rounded-3xl p-8 border border-slate-700 text-center shadow-inner relative overflow-hidden reveal-scale">
+                        <div class="bg-slate-800/50 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center shadow-inner relative overflow-hidden reveal-scale">
                             <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-brain text-7xl"></i>
+                                <i class="fas fa-brain text-5xl sm:text-7xl"></i>
                             </div>
-                            <p class="text-5xl font-black text-accent mb-2 neon-number">60.75%</p>
-                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Model Accuracy</p>
-                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number">60.75%</p>
+                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Model Accuracy</p>
+                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
                                 <div>
-                                    <p class="text-white font-bold">13</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Features</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">13</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Features</p>
                                 </div>
                                 <div>
-                                    <p class="text-white font-bold">8:00 AM</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Daily Trigger</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">8:00 AM</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Daily Trigger</p>
                                 </div>
                             </div>
                         </div>
@@ -840,70 +843,70 @@
                 </div>
             </div>
 
-            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row-reverse gap-10 items-center">
-                    <div class="lg:w-3/5">
-                        <h4 class="text-accent font-mono text-xs mb-4 tracking-widest uppercase">Final Year Research</h4>
-                        <h5 class="text-3xl md:text-4xl font-bold mb-6 text-white">Sentiment & Stock Price Impact Analysis</h5>
-                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
+                <div class="flex flex-col lg:flex-row-reverse gap-6 md:gap-10 items-center">
+                    <div class="lg:w-3/5 w-full">
+                        <h4 class="text-accent font-mono text-[10px] mb-2 sm:mb-4 tracking-widest uppercase">Final Year Research</h4>
+                        <h5 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">Sentiment & Stock Price Impact Analysis</h5>
+                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
                             Research on the correlation between social media sentiment and market oscillations. Developed a custom pipeline to analyze Twitter sentiment impact on CSE stock movements.
                         </p>
-                        <div class="flex flex-wrap gap-3 mb-8 text-white">
-                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs tech-tag">Python</span>
-                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs tech-tag">NLP</span>
-                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs tech-tag">TextBlob</span>
-                            <span class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs tech-tag">Scikit-Learn</span>
+                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8 text-white">
+                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">Python</span>
+                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">NLP</span>
+                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">TextBlob</span>
+                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">Scikit-Learn</span>
                         </div>
-                        <a href="https://github.com/goyumsamuditha/Final-Year-Project" target="_blank" class="text-accent font-bold flex items-center link-underline">
+                        <a href="https://github.com/goyumsamuditha/Final-Year-Project" target="_blank" class="text-accent font-bold flex items-center link-underline text-xs sm:text-base">
                             <i class="fab fa-github mr-2"></i> View Repo
                         </a>
                     </div>
                     <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center reveal-scale">
-                            <p class="text-5xl font-black text-white/90 mb-2 neon-number">94.1%</p>
-                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Prediction Accuracy</p>
+                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center reveal-scale">
+                            <p class="text-3xl sm:text-5xl font-black text-white/90 mb-1 sm:mb-2 neon-number">94.1%</p>
+                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Prediction Accuracy</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row gap-10 items-center">
-                    <div class="lg:w-3/5">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
+            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
+                <div class="flex flex-col lg:flex-row gap-6 md:gap-10 items-center">
+                    <div class="lg:w-3/5 w-full">
+                        <div class="flex items-center gap-3 mb-3 md:mb-4">
+                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
                         </div>
-                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Wine Chemical Profiling & Quality Analysis</h4>
-                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Wine Chemical Profiling & Quality Analysis</h4>
+                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
                             An end-to-end data mining pipeline deciphering structural patterns across <span class="text-white font-semibold">6,000+ wine chemical profiles</span>. Engineered with unsupervised machine learning in R to evaluate data geometry using K-Means clustering, silhouette width optimization, and cophenetic tree linkage diagnostics.
                         </p>
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">K-Means</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Hierarchical Clustering</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">PCA Diagnostics</span>
+                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">K-Means</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Hierarchical Clustering</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">PCA Diagnostics</span>
                         </div>
                         <div class="flex items-center gap-6">
-                            <a href="https://github.com/goyumsamuditha/clustering-analysis.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline">
+                            <a href="https://github.com/goyumsamuditha/clustering-analysis.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
                                 <i class="fab fa-github mr-2"></i> View Repo
                             </a>
                         </div>
                     </div>
                     <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
+                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
                             <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-wine-glass-alt text-7xl"></i>
+                                <i class="fas fa-wine-glass-alt text-5xl sm:text-7xl"></i>
                             </div>
-                            <p class="text-5xl font-black text-accent mb-2 neon-number wine-accuracy">99.2%</p>
-                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Classification Accuracy</p>
-                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number wine-accuracy">99.2%</p>
+                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Classification Accuracy</p>
+                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
                                 <div>
-                                    <p class="text-white font-bold">11</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Chemical Features</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">11</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Chemical Features</p>
                                 </div>
                                 <div>
-                                    <p class="text-white font-bold">0.768</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Cophenetic Linkage</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">0.768</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Cophenetic Linkage</p>
                                 </div>
                             </div>
                         </div>
@@ -911,43 +914,43 @@
                 </div>
             </div>
 
-            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row-reverse gap-10 items-center">
-                    <div class="lg:w-3/5">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
+            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
+                <div class="flex flex-col lg:flex-row-reverse gap-6 md:gap-10 items-center">
+                    <div class="lg:w-3/5 w-full">
+                        <div class="flex items-center gap-3 mb-3 md:mb-4">
+                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
                         </div>
-                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Data-Driven Market Basket Analytics Pipeline</h4>
-                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Data-Driven Market Basket Analytics Pipeline</h4>
+                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
                             An adaptive analytics engine designed to extract structural purchase patterns from massive e-commerce transactional logs. Bypasses textbook guesswork by utilizing distribution percentiles to programmatically determine a <span class="text-white font-semibold">1.71% support floor</span> and executing an empirical confidence sweep to locate the operational "elbow" optimization zone.
                         </p>
-                        <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Apriori Engine</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Sparse Matrices</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Hyperparameter Tuning</span>
+                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Apriori Engine</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Sparse Matrices</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Hyperparameter Tuning</span>
                         </div>
                         <div class="flex items-center gap-6">
-                            <a href="https://github.com/goyumsamuditha/online-retail-mba.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline">
+                            <a href="https://github.com/goyumsamuditha/online-retail-mba.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
                                 <i class="fab fa-github mr-2"></i> View Repo
                             </a>
                         </div>
                     </div>
                     <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
+                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
                             <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-shopping-basket text-7xl"></i>
+                                <i class="fas fa-shopping-basket text-5xl sm:text-7xl"></i>
                             </div>
-                            <p class="text-5xl font-black text-accent mb-2 neon-number mba-rules">167</p>
-                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Optimized Rules Discovered</p>
-                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number mba-rules">167</p>
+                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Optimized Rules Discovered</p>
+                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
                                 <div>
-                                    <p class="text-white font-bold">1.71%</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Support Floor</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">1.71%</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Support Floor</p>
                                 </div>
                                 <div>
-                                    <p class="text-white font-bold">30.69</p>
-                                    <p class="text-[10px] text-slate-500 uppercase">Maximum Lift</p>
+                                    <p class="text-white font-bold text-sm sm:text-base">30.69</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Maximum Lift</p>
                                 </div>
                             </div>
                         </div>
@@ -959,17 +962,17 @@
     </div>
 </section>
 
-<section id="certifications" class="py-24 px-6 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold mb-16 text-center text-white reveal">
+<section id="certifications" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-16 text-center text-white reveal">
         <span class="text-accent mr-3"></span> Verified Credentials
     </h3>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger">
         
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/40 transition group cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/40 transition group cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg leading-tight">Advanced Certificate in Data Analytics</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Advanced Certificate in Data Analytics</h4>
                     <p class="text-slate-500 text-xs mt-1">NIBM Sri Lanka</p>
                 </div>
                 <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center shrink-0 text-orange-400">
@@ -979,13 +982,13 @@
             <span class="text-[10px] bg-orange-500/10 text-orange-400 px-2 py-1 rounded uppercase font-bold tracking-tighter">Verified Certificate</span>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Python Essentials</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Python Essentials</h4>
                     <p class="text-slate-500 text-xs mt-1">Cisco Networking Academy</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="cisco-python-badge.png" alt="Cisco Python Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -995,13 +998,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Introduction to Cybersecurity</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Introduction to Cybersecurity</h4>
                     <p class="text-slate-500 text-xs mt-1">Cisco Networking Academy</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="cisco-cybersecurity-badge.png" alt="Cisco Cybersecurity Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1011,13 +1014,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Introduction to Data Science</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Introduction to Data Science</h4>
                     <p class="text-slate-500 text-xs mt-1">Cisco Networking Academy</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="cisco-datascience-badge.png" alt="Cisco Data Science Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1027,13 +1030,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Big Data Foundations - Level 1</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Big Data Foundations - Level 1</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-BigData-badge.png" alt="IBM Big Data Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1043,13 +1046,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Data Analysis Using Python</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Analysis Using Python</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-Data analysis-badge.png" alt="IBM Data Analysis Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1059,13 +1062,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Data Visualization Using Python</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Visualization Using Python</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-Data visulization-badge.png" alt="IBM Data Visualization Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1075,13 +1078,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Data Science Foundations - Level 1</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Science Foundations - Level 1</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-Datasciencefoundation-badge.png" alt="IBM Data Science Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1091,13 +1094,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Data Visualization with R</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Visualization with R</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-DatavisuR-badge.png" alt="IBM R Visualization Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1107,13 +1110,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-orange-500/50 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Python for Data Science</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Python for Data Science</h4>
                     <p class="text-slate-500 text-xs mt-1">IBM</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="IBM-pythonDS-badge.png" alt="IBM Python DS Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1123,13 +1126,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Introduction to IoT</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Introduction to IoT</h4>
                     <p class="text-slate-500 text-xs mt-1">Cisco Networking Academy</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="cisco-IOT-badge.png" alt="Cisco IoT Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1139,13 +1142,13 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-green-500 cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg">Data Analytics Essentials</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Analytics Essentials</h4>
                     <p class="text-slate-500 text-xs mt-1">Cisco Networking Academy</p>
                 </div>
-                <div class="w-16 h-16 shrink-0">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0">
                     <img src="cisco-DAE-badge.png" alt="Cisco DAE Badge" class="w-full h-full object-contain">
                 </div>
             </div>
@@ -1155,10 +1158,10 @@
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-purple-400 hover:bg-slate-800/40 transition group cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-purple-400 hover:bg-slate-800/40 transition group cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg leading-tight">Power BI Boot Camp</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Power BI Boot Camp</h4>
                 </div>
                 <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center shrink-0 text-purple-400">
                     <i class="fas fa-graduation-cap"></i>
@@ -1167,10 +1170,10 @@
             <span class="text-[10px] bg-orange-500/10 text-purple-400 px-2 py-1 rounded uppercase font-bold tracking-tighter">Verified Certificate</span>
         </div>
 
-        <div class="glass p-6 rounded-2xl border-l-4 border-purple-400 hover:bg-slate-800/40 transition group cert-badge">
-            <div class="flex items-start justify-between mb-4">
+        <div class="glass p-5 sm:p-6 rounded-2xl border-l-4 border-purple-400 hover:bg-slate-800/40 transition group cert-badge">
+            <div class="flex items-start justify-between gap-4 mb-4">
                 <div>
-                    <h4 class="text-white font-bold text-lg leading-tight">Data Science & R Programming Workshop</h4>
+                    <h4 class="text-white font-bold text-base sm:text-lg leading-tight">Data Science & R Programming Workshop</h4>
                 </div>
                 <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center shrink-0 text-purple-400">
                     <i class="fas fa-graduation-cap"></i>
@@ -1182,241 +1185,269 @@
     </div>
 </section>
 
-<section id="blog" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
-    <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center text-white reveal">
+<section id="blog" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-12 text-center text-white reveal">
         <span class="text-accent mr-3"></span> Articles</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 stagger">
         
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 — 𝙒𝙝𝙖𝙩's 𝙩𝙝𝙚 𝙍𝙚𝙖𝙡 𝘿𝙞𝙛𝙛𝙚𝙧𝙚𝙣𝙘е?
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                In this article, I discuss the real difference between business analyst and data analyst.
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_dataanalytics-businessanalysis-sql-activity-7427184235578392576-9hwU?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/blog-post.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 — 𝙒𝙝𝙖𝙩's 𝙩𝙝𝙚 𝙍𝙚𝙖𝙡 𝘿𝙞𝙛𝙛𝙚𝙧𝙚𝙣𝙘е?
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    In this article, I discuss the real difference between business analyst and data analyst.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_dataanalytics-businessanalysis-sql-activity-7427184235578392576-9hwU?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/blog-post.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
 
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">Business Intelligence</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                Exploring Global Development Indicators with Power BI
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                A deep dive into World Bank Open Data analyzing the correlation between GDP, public health, and education using DAX and Star Schema modeling
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_powerbi-dataanalytics-datavisualization-activity-7427261144014356480-zin1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/blog-post_03.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">Business Intelligence</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    Exploring Global Development Indicators with Power BI
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    A deep dive into World Bank Open Data analyzing the correlation between GDP, public health, and education using DAX and Star Schema modeling
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_powerbi-dataanalytics-datavisualization-activity-7427261144014356480-zin1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/blog-post_03.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
 
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Science</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                𝐃𝐚𝐭𝐚 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐭𝐫𝐞𝐧𝐝𝐬 𝐭𝐡𝐚𝐭 𝐰𝐢𝐥𝐥 𝐦𝐚𝐤𝐞 2025 𝐲𝐨𝐮𝐫 𝐛𝐫𝐞𝐚𝐤𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐲𝐞𝐚𝐫
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                From AI that creates insights to tools your grandma can use - here's what's actually happening in the world of data
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-ai-machinelearning-activity-7365215563805052930-SNfC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2025/08/2025.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Science</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    𝐃𝐚𝐭𝐚 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐭𝐫𝐞𝐧𝐝𝐬 𝐭𝐡𝐚𝐭 𝐰𝐢𝐥𝐥 𝐦𝐚𝐤𝐞 2025 𝐲𝐨𝐮𝐫 𝐛𝐫𝐞𝐚𝐤𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐲𝐞𝐚𝐫
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    From AI that creates insights to tools your grandma can use - here's what's actually happening in the world of data
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-ai-machinelearning-activity-7365215663805052930-SNfC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2025/08/2025.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
 
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">AI Agent</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                Automated Trading Agent
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                From a Jupyter Notebook to a live cloud system – this project genuinely changed how I think about data science.
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-machinelearning-python-activity-7446760195655041024-fJkh?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/automated-trading-agent.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">AI Agent</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    Automated Trading Agent
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    From a Jupyter Notebook to a live cloud system – this project genuinely changed how I think about data science.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-machinelearning-python-activity-7446760195655041024-fJkh?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/automated-trading-agent.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
 
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Science</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                The Hybrid Professional: Why the Best Data Scientists Think Like Business Analysts
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                A highly talented team spends weeks building a brilliant data model. The code is clean, the pipeline is seamless, and the technical metrics are perfect.
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-businessanalysis-productmanagement-ugcPost-7458783255182614528-yf2y?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/the-hybrid-professional-why-best-data.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Science</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    The Hybrid Professional: Why the Best Data Scientists Think Like Business Analysts
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    A highly talented team spends weeks building a brilliant data model. The code is clean, the pipeline is seamless, and the technical metrics are perfect.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-businessanalysis-productmanagement-ugcPost-7458783255182614528-yf2y?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/the-hybrid-professional-why-best-data.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
         
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                Moving Beyond Textbook Guesswork: Building a Data-Driven Market Basket Pipeline in R
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                Data science should never exist in a vacuum. The true value of unsupervised learning comes when you translate association rules and set theory into direct, real-world corporate strategy.
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-r-marketbasketanalysis-ugcPost-7461935297665286144-huDD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/moving-beyond-textbook-guesswork.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    Moving Beyond Textbook Guesswork: Building a Data-Driven Market Basket Pipeline in R
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    Data science should never exist in a vacuum. The true value of unsupervised learning comes when you translate association rules and set theory into direct, real-world corporate strategy.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-r-marketbasketanalysis-ugcPost-7461935297665286144-huDD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/moving-beyond-textbook-guesswork.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
         
-        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
-            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
-            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                Can Data Out-Taste a Human? What Clustering 6,000 Wines Taught Me About Machine Learning vs. Real-World Balance
-            </h4>
-            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                6,000 wine profiles into an unsupervised data mining pipeline in R, stripped away all their identifying labels, and let K-Means and Hierarchical clustering algorithms hunt for patterns based purely on 11 lab chemistry attributes.
-            </p>
-            <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-500">Published on LinkedIn</span>
-                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-machinelearning-rprogramming-ugcPost-7461949634052198400-YMqy?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
-                    <i class="fab fa-linkedin text-sm"></i> Post
-                </a>
-                <a href="https://goyumsamuditha.blogspot.com/2026/05/can-data-out-taste-human-what.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
-                    <i class="fas fa-newspaper text-sm"></i> Read Article
-                </a>
+        <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                    Can Data Out-Taste a Human? What Clustering 6,000 Wines Taught Me About Machine Learning vs. Real-World Balance
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    6,000 wine profiles into an unsupervised data mining pipeline in R, stripped away all their identifying labels, and let K-Means and Hierarchical clustering algorithms hunt for patterns based purely on 11 lab chemistry attributes.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-machinelearning-rprogramming-ugcPost-7461949634052198400-YMqy?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/05/can-data-out-taste-human-what.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
             </div>
         </article>
     </div>
 </section>
 
-<section id="resume-download" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold mb-12 text-center text-white no-underline reveal">
+<section id="resume-download" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-12 text-center text-white no-underline reveal">
         <span class="text-accent mr-3"></span> Curriculum Vitae
     </h3>
     
-    <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-orange-500/20 relative overflow-hidden bg-gradient-to-r from-orange-500/5 to-transparent text-center reveal-scale">
+    <div class="glass p-5 sm:p-8 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-orange-500/20 relative overflow-hidden bg-gradient-to-r from-orange-500/5 to-transparent text-center reveal-scale">
         <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-            <i class="fas fa-file-pdf text-9xl text-orange-500"></i>
+            <i class="fas fa-file-pdf text-7xl sm:text-9xl text-orange-500"></i>
         </div>
         
-        <h4 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Looking for the Full Technical Breakdown?</h4>
-        <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+        <h4 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-3 sm:mb-4">Looking for the Full Technical Breakdown?</h4>
+        <p class="text-slate-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
             Download my complete resume to read more about my experience in DevOps, Business Analysis, and my academic work in MSc Data Science.
         </p>
         
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="Goyum_Samuditha.pdf" download="Goyum_Samuditha.pdf" onclick="forceDownload(event, this.href, 'Goyum_Samuditha_Resume.pdf')" class="bg-accent hover:bg-orange-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:scale-105 duration-300 shadow-lg shadow-orange-500/20 inline-flex items-center justify-center gap-2 text-sm cursor-pointer">
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <a href="Goyum_Samuditha.pdf" download="Goyum_Samuditha.pdf" onclick="forceDownload(event, this.href, 'Goyum_Samuditha_Resume.pdf')" class="bg-accent hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition-all hover:scale-105 duration-300 shadow-lg shadow-orange-500/20 inline-flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer">
                 <i class="fas fa-file-download animate-bounce"></i> Download Resume
             </a>
-            <a href="Goyum_Samuditha.pdf" target="_blank" class="border border-slate-700 hover:border-accent text-slate-300 font-bold py-3.5 px-8 rounded-xl transition inline-flex items-center justify-center gap-2 text-sm">
+            <a href="Goyum_Samuditha.pdf" target="_blank" class="border border-slate-700 hover:border-accent text-slate-300 font-bold py-3 px-6 rounded-xl transition inline-flex items-center justify-center gap-2 text-xs sm:text-sm">
                 <i class="fas fa-external-link-alt"></i> View Online
             </a>
         </div>
     </div>
 </section>
 
-<section id="contact" class="py-20 md:py-24 px-6 bg-slate-900/20">
+<section id="contact" class="py-16 md:py-24 px-4 sm:px-6 bg-slate-900/20">
     <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16 reveal">
-            <h3 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h3>
-            <p class="text-slate-400 text-sm md:text-base">Available for projects involving business intelligence, machine learning, or workflow automation.</p>
+        <div class="text-center mb-10 md:mb-16 reveal">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Get In Touch</h3>
+            <p class="text-slate-400 text-xs sm:text-sm md:text-base">Available for projects involving business intelligence, machine learning, or workflow automation.</p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            <div class="lg:col-span-5 space-y-6 reveal-left">
-                <h4 class="text-lg font-bold text-white mb-2"><i class="fas fa-wifi text-accent mr-2 animate-pulse"></i>Instant Connect Hub</h4>
+            <div class="lg:col-span-5 space-y-4 sm:space-y-6 w-full reveal-left">
+                <h4 class="text-base sm:text-lg font-bold text-white mb-2"><i class="fas fa-wifi text-accent mr-2 animate-pulse"></i>Instant Connect Hub</h4>
 
-                <div class="glass p-5 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/30 transition duration-300 glass-glow">
+                <div class="glass p-4 sm:p-5 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/30 transition duration-300 glass-glow">
                     <div class="flex gap-4 items-center">
-                        <div class="w-20 h-20 bg-white p-1 rounded-lg shrink-0 shadow-md">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white p-1 rounded-lg shrink-0 shadow-md">
                             <img src="QRCode-Digime.png" alt="Scan DigiMe" class="w-full h-full object-contain">
                         </div>
                         <div>
                             <span class="text-[9px] bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded font-bold uppercase float-badge">DigiMe NFC</span>
-                            <h5 class="font-bold text-sm text-white mt-1">DigiMe Profile</h5>
-                            <p class="text-slate-400 text-[11px] mt-0.5 mb-2 leading-tight">Scan to save my complete contact card directly to your device.</p>
+                            <h5 class="font-bold text-xs sm:text-sm text-white mt-1">DigiMe Profile</h5>
+                            <p class="text-slate-400 text-[10px] sm:text-[11px] mt-0.5 mb-1 sm:mb-2 leading-tight">Scan to save my complete contact card directly to your device.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass p-5 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/30 transition duration-300 glass-glow">
+                <div class="glass p-4 sm:p-5 rounded-2xl border-l-4 border-orange-500 hover:bg-slate-800/30 transition duration-300 glass-glow">
                     <div class="flex gap-4 items-center">
-                        <div class="w-20 h-20 bg-white p-1 rounded-lg shrink-0 shadow-md">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white p-1 rounded-lg shrink-0 shadow-md">
                             <img src="QRCode.png" alt="Scan Bling" class="w-full h-full object-contain">
                         </div>
                         <div>
                             <span class="text-[9px] bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded font-bold uppercase float-badge">vBlink Smart Card</span>
-                            <h5 class="font-bold text-sm text-white mt-1">Bling Connection</h5>
-                            <p class="text-slate-400 text-[11px] mt-0.5 mb-2 leading-tight">Scan to view my smart card or exchange contact info instantly.</p>
+                            <h5 class="font-bold text-xs sm:text-sm text-white mt-1">Bling Connection</h5>
+                            <p class="text-slate-400 text-[10px] sm:text-[11px] mt-0.5 mb-1 sm:mb-2 leading-tight">Scan to view my smart card or exchange contact info instantly.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-4 space-y-4 border-t border-slate-800/50">
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon"><i class="fas fa-envelope text-xs"></i></div>
-                        <div><p class="text-[11px] text-slate-500">Email Me</p><a href="mailto:goyumsamuditha@gmail.com" class="text-slate-300 hover:text-accent text-xs transition link-underline">goyumsamuditha@gmail.com</a></div>
+                <div class="pt-4 space-y-3 sm:space-y-4 border-t border-slate-800/50">
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon shrink-0"><i class="fas fa-envelope text-xs"></i></div>
+                        <div class="min-w-0"><p class="text-[10px] sm:text-[11px] text-slate-500">Email Me</p><a href="mailto:goyumsamuditha@gmail.com" class="text-slate-300 hover:text-accent text-xs transition link-underline truncate block">goyumsamuditha@gmail.com</a></div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon"><i class="fas fa-phone text-xs"></i></div>
-                        <div><p class="text-[11px] text-slate-500">Call Me</p><p class="text-slate-300 text-xs">+94 77 375 9190</p></div>
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon shrink-0"><i class="fas fa-phone text-xs"></i></div>
+                        <div><p class="text-[10px] sm:text-[11px] text-slate-500">Call Me</p><p class="text-slate-300 text-xs">+94 77 375 9190</p></div>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon"><i class="fas fa-location-dot text-xs"></i></div>
-                        <div><p class="text-[11px] text-slate-500">Location</p><p class="text-slate-300 text-xs">Western Province, Sri Lanka</p></div>
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-accent contact-icon shrink-0"><i class="fas fa-location-dot text-xs"></i></div>
+                        <div><p class="text-[10px] sm:text-[11px] text-slate-500">Location</p><p class="text-slate-300 text-xs">Western Province, Sri Lanka</p></div>
                     </div>
                 </div>
             </div>
 
-            <form action="https://formspree.io/f/xeevdpgj" method="POST" class="lg:col-span-7 space-y-4 bg-slate-900/10 p-6 md:p-8 rounded-[2rem] border border-slate-800/80 reveal-right">
-                <h4 class="text-lg font-bold text-white mb-2"><i class="fas fa-paper-plane text-accent mr-2"></i>Send a Direct Message</h4>
-                <input type="text" name="name" required placeholder="Your Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-sm text-white">
-                <input type="email" name="email" required placeholder="Your Email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-sm text-white">
-                <textarea name="message" required placeholder="Your Message" rows="5" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-sm text-white"></textarea>
-                <button type="submit" class="w-full bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition text-sm md:text-base">Send Message</button>
+            <form action="https://formspree.io/f/xeevdpgj" method="POST" class="lg:col-span-7 space-y-4 bg-slate-900/10 p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-800/80 w-full reveal-right">
+                <h4 class="text-base sm:text-lg font-bold text-white mb-1"><i class="fas fa-paper-plane text-accent mr-2"></i>Send a Direct Message</h4>
+                <input type="text" name="name" required placeholder="Your Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-xs sm:text-sm text-white">
+                <input type="email" name="email" required placeholder="Your Email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-xs sm:text-sm text-white">
+                <textarea name="message" required placeholder="Your Message" rows="5" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-accent text-xs sm:text-sm text-white"></textarea>
+                <button type="submit" class="w-full bg-accent hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition text-xs sm:text-base">Send Message</button>
             </form>
 
         </div>
     </div>
 </section>
 
-<footer class="py-12 border-t border-slate-900 text-center text-slate-500 text-[10px] md:text-xs reveal">
+<footer class="py-10 border-t border-slate-900 text-center text-slate-500 text-[10px] md:text-xs reveal px-4">
     <p>© 2026 Goyum Samuditha. Western Province, Sri Lanka.</p>
-    <div class="mt-6 flex justify-center space-x-6 text-lg">
+    <div class="mt-4 flex justify-center space-x-6 text-lg">
         <a href="https://www.linkedin.com/in/goyum-samuditha" target="_blank" class="hover:text-accent"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/goyumsamuditha" target="_blank" class="hover:text-accent transition"><i class="fab fa-github"></i></a>
     </div>
@@ -1430,8 +1461,8 @@
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let W, H, particles = [], mouse = { x: -9999, y: -9999 };
-    const COUNT = window.innerWidth < 768 ? 40 : 80;
-    const CONNECT_DIST = 130;
+    const COUNT = window.innerWidth < 768 ? 30 : 80;
+    const CONNECT_DIST = window.innerWidth < 768 ? 90 : 130;
     const MOUSE_DIST = 120;
 
     function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
@@ -1496,7 +1527,7 @@
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = (scrollTop / docHeight * 100) + '%';
+        bar.style.width = (docHeight > 0 ? (scrollTop / docHeight * 100) : 0) + '%';
     }, { passive: true });
 })();
 
@@ -1526,7 +1557,7 @@
                 if (parent) {
                     const siblings = Array.from(parent.children);
                     const index = siblings.indexOf(entry.target);
-                    delay = isMobile ? index * 50 : index * 90;
+                    delay = isMobile ? index * 40 : index * 90;
                 }
                 setTimeout(() => {
                     entry.target.classList.add('visible');
@@ -1536,7 +1567,7 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
     revealEls.forEach(el => observer.observe(el));
 })();
 
@@ -1582,7 +1613,7 @@
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     window.addEventListener('scroll', () => {
         let current = '';
-        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
         navLinks.forEach(link => {
             link.style.color = '';
             if (link.getAttribute('href') === '#' + current) link.style.color = '#f97316';
@@ -1628,7 +1659,6 @@
         }
     }
 
-    // Start with first role typed, then cycle
     el.textContent = '';
     charIdx = 0;
     setTimeout(morphType, 800);
@@ -1638,6 +1668,7 @@
    9. HERO NAME GLOW ON HOVER
    ================================================================ */
 (function () {
+    if (window.innerWidth < 768) return;
     const nameEl = document.querySelector('#home h1');
     if (!nameEl) return;
     nameEl.style.transition = 'text-shadow 0.4s ease, color 0.4s ease';
@@ -1677,7 +1708,7 @@
             animateCounter(el, parseFloat(raw), el.dataset.countSuffix || '', 1800);
             statsObserver.unobserve(el);
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     document.querySelectorAll('#about .stat-val').forEach(el => {
         const text = el.textContent.trim();
@@ -1692,7 +1723,7 @@
 })();
 
 /* ================================================================
-   11. PROJECT STATS ROLL-UP (Safely extended for project 3 and 4)
+   11. PROJECT STATS ROLL-UP
    ================================================================ */
 (function () {
     function rollUp(el, target, suffix, duration) {
@@ -1720,7 +1751,7 @@
         el.textContent = '0' + suffix;
         const obs = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) { rollUp(el, target, suffix, 2000); obs.unobserve(el); }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
         obs.observe(el);
     });
 })();
@@ -1737,7 +1768,7 @@
         text.split('').forEach((char, i) => {
             const span = document.createElement('span');
             span.textContent = char === ' ' ? '\u00A0' : char;
-            span.style.cssText = `display:inline-block;opacity:0;transform:translateY(20px) rotateX(90deg);transition:opacity 0.4s ${i * 0.03}s,transform 0.4s ${i * 0.03}s;`;
+            span.style.cssText = `display:inline-block;opacity:0;transform:translateY(20px) rotateX(90deg);transition:opacity 0.4s ${i * 0.02}s,transform 0.4s ${i * 0.02}s;`;
             h.appendChild(span);
         });
         const obs = new IntersectionObserver(entries => {
@@ -1745,7 +1776,7 @@
                 h.querySelectorAll('span').forEach(s => { s.style.opacity = '1'; s.style.transform = 'translateY(0) rotateX(0)'; });
                 obs.unobserve(h);
             }
-        }, { threshold: 0.3 });
+        }, { threshold: 0.2 });
         obs.observe(h);
     });
 })();
@@ -1758,7 +1789,6 @@
     const items = document.querySelectorAll('#experience .space-y-12 > .relative');
     items.forEach((item, i) => {
         if (isMobile) {
-            // On mobile just fade in — no X translation to avoid overflow issues
             item.style.opacity = '0';
             item.style.transition = `opacity 0.5s ${i * 0.1}s ease`;
         } else {
@@ -1769,10 +1799,10 @@
         const obs = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
                 item.style.opacity = '1';
-                item.style.transform = 'translateX(0)';
+                if (!isMobile) item.style.transform = 'translateX(0)';
                 obs.unobserve(item);
             }
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
         obs.observe(item);
     });
 })();
@@ -1849,7 +1879,7 @@
     if (!line) return;
     const obs = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) { line.style.animation = 'timelineLineGrow 1.5s cubic-bezier(0.16,1,0.3,1) both'; obs.unobserve(line); }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
     obs.observe(line);
 })();
 
@@ -1934,7 +1964,7 @@
         el.appendChild(underline);
         const obs = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) { setTimeout(() => { underline.style.width = '100%'; }, 600); obs.unobserve(el); }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
         obs.observe(el);
     });
 })();
@@ -1956,7 +1986,7 @@
                 if (icon) setTimeout(() => { icon.style.transform = 'scale(1.4) rotate(10deg)'; setTimeout(() => { icon.style.transform = ''; }, 300); }, i * 150 + 400);
                 obs.unobserve(li);
             }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
         obs.observe(li);
     });
 })();

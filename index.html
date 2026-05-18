@@ -385,7 +385,7 @@
         }
 
         /* =============================================
-           CURSOR GLOW
+           CURSOR GLOW (desktop only)
            ============================================= */
         #cursor-glow {
             position: fixed;
@@ -442,6 +442,8 @@
             border-radius: 50%;
             background: #22c55e;
             animation: livePing 1.5s ease-out infinite;
+            z-index: 10;
+            pointer-events: none;
         }
 
         /* Gradient animated border on featured project */
@@ -514,8 +516,6 @@
         }
         .contact-icon:hover { transform: scale(1.2) rotate(10deg); }
 
-        /* Experience item slide-in handled by JS */
-
         /* Neon text for accent numbers */
         .neon-number {
             transition: text-shadow 0.3s;
@@ -573,25 +573,19 @@
 </head>
 <body class="antialiased">
 
-<!-- Scroll progress bar -->
 <div id="scroll-progress"></div>
 
-<!-- Cursor glow (desktop only) -->
 <div id="cursor-glow"></div>
 
-<!-- Animated particle canvas -->
 <canvas id="particle-canvas"></canvas>
 
-<!-- =============================================
-     NAV
-     ============================================= -->
 <nav class="fixed w-full z-50 glass top-0 py-4 px-4 md:px-12 flex justify-between items-center">
     <div class="text-lg md:text-xl font-bold tracking-tight">GOYUM<span class="text-accent uppercase"> SAMUDITHA</span></div>
     
     <div class="hidden md:flex space-x-8 text-sm font-medium">
         <a href="#home" class="hover:text-accent transition">Home</a>
         <a href="#about" class="hover:text-accent transition">About</a>
-        <a href="#education" class="hover:text-accent transition">Education</a>                                            
+        <a href="#education" class="hover:text-accent transition">Education</a>                            
         <a href="#skills" class="hover:text-accent transition">Skills</a>
         <a href="#experience" class="hover:text-accent transition">Experience</a>
         <a href="#projects" class="hover:text-accent transition">Projects</a>
@@ -639,9 +633,6 @@
     });
 </script>
 
-<!-- =============================================
-     HERO
-     ============================================= -->
 <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center pt-24 md:pt-20 px-6 max-w-7xl mx-auto gap-12">
     <div class="text-center md:text-left flex-1">
         <h2 class="text-accent font-mono mb-4 tracking-widest uppercase text-xs md:text-sm">Data Analyst | Data Scientist</h2>
@@ -664,9 +655,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     ABOUT
-     ============================================= -->
 <section id="about" class="py-20 md:py-24 px-6 max-w-5xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div class="reveal-left">
@@ -693,9 +681,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     EDUCATION
-     ============================================= -->
 <section id="education" class="py-20 md:py-24 px-6 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
     <div class="reveal-left">
         <h3 class="text-xl md:text-2xl font-bold mb-8">Education</h3>
@@ -721,9 +706,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     SKILLS
-     ============================================= -->
 <section id="skills" class="py-20 md:py-24 px-6 bg-slate-900/30">
     <div class="max-w-6xl mx-auto">
         <h3 class="text-2xl md:text-3xl font-bold mb-12 md:mb-16 text-center reveal">Technical Arsenal</h3>
@@ -776,9 +758,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     EXPERIENCE
-     ============================================= -->
 <section id="experience" class="py-20 md:py-24 px-6 max-w-4xl mx-auto" style="overflow:visible;">
     <h3 class="text-2xl md:text-3xl font-bold mb-12 reveal"><span class="text-accent mr-3"></span> Experience</h3>
     <div class="space-y-12 border-l-2 border-slate-800 ml-2 md:ml-4 pl-6 md:pl-8" style="overflow:visible;">
@@ -796,7 +775,7 @@
         </div>
         <div class="relative reveal" style="overflow:visible;">
             <div class="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-slate-700 timeline-dot"></div>
-            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Junior ERP Function Analyst</h4>
+            <h4 class="text-lg md:text-xl font-bold text-glow-hover">Junior ERP Functional Analyst</h4>
             <p class="text-accent text-xs md:text-sm mb-4">SPIL Labs | Sep 2023 - Nov 2023</p>
             <p class="text-slate-400 text-sm">Supported ERP operational reporting and resolved issues, reducing average resolution turnaround by 20%.</p>
         </div>
@@ -809,9 +788,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     PROJECTS
-     ============================================= -->
 <section id="projects" class="py-24 px-6 bg-slate-900/40">
     <div class="max-w-6xl mx-auto">
         <h3 class="text-3xl font-bold mb-16 text-center text-white reveal">Featured Research & Engineering</h3>
@@ -890,13 +866,99 @@
                     </div>
                 </div>
             </div>
+
+            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
+                <div class="flex flex-col lg:flex-row gap-10 items-center">
+                    <div class="lg:w-3/5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
+                        </div>
+                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Wine Chemical Profiling & Quality Analysis</h4>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            An end-to-end data mining pipeline deciphering structural patterns across <span class="text-white font-semibold">6,000+ wine chemical profiles</span>. Engineered with unsupervised machine learning in R to evaluate data geometry using K-Means clustering, silhouette width optimization, and cophenetic tree linkage diagnostics.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">K-Means</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Hierarchical Clustering</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">PCA Diagnostics</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="https://github.com/goyumsamuditha/clustering-analysis.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline">
+                                <i class="fab fa-github mr-2"></i> View Repo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/5 w-full">
+                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
+                            <div class="absolute top-0 right-0 p-4 opacity-10">
+                                <i class="fas fa-wine-glass-alt text-7xl"></i>
+                            </div>
+                            <p class="text-5xl font-black text-accent mb-2 neon-number wine-accuracy">99.2%</p>
+                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Classification Accuracy</p>
+                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-white font-bold">11</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Chemical Features</p>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold">0.768</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Cophenetic Linkage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 md:p-10 rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
+                <div class="flex flex-col lg:flex-row-reverse gap-10 items-center">
+                    <div class="lg:w-3/5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-accent font-mono text-xs tracking-widest uppercase">MSc Data Science Project</span>
+                        </div>
+                        <h4 class="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-accent transition-colors">Data-Driven Market Basket Analytics Pipeline</h4>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            An adaptive analytics engine designed to extract structural purchase patterns from massive e-commerce transactional logs. Bypasses textbook guesswork by utilizing distribution percentiles to programmatically determine a <span class="text-white font-semibold">1.71% support floor</span> and executing an empirical confidence sweep to locate the operational "elbow" optimization zone.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Apriori Engine</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Sparse Matrices</span>
+                            <span class="bg-slate-800/80 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 tech-tag">Hyperparameter Tuning</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <a href="https://github.com/goyumsamuditha/online-retail-mba.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline">
+                                <i class="fab fa-github mr-2"></i> View Repo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/5 w-full">
+                        <div class="bg-slate-800/30 rounded-3xl p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
+                            <div class="absolute top-0 right-0 p-4 opacity-10">
+                                <i class="fas fa-shopping-basket text-7xl"></i>
+                            </div>
+                            <p class="text-5xl font-black text-accent mb-2 neon-number mba-rules">167</p>
+                            <p class="text-slate-500 uppercase text-xs font-bold tracking-widest">Optimized Rules Discovered</p>
+                            <div class="mt-6 pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-white font-bold">1.71%</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Support Floor</p>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold">30.69</p>
+                                    <p class="text-[10px] text-slate-500 uppercase">Maximum Lift</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
-<!-- =============================================
-     CERTIFICATIONS
-     ============================================= -->
 <section id="certifications" class="py-24 px-6 max-w-6xl mx-auto">
     <h3 class="text-3xl font-bold mb-16 text-center text-white reveal">
         <span class="text-accent mr-3"></span> Verified Credentials
@@ -1120,9 +1182,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     BLOG / ARTICLES
-     ============================================= -->
 <section id="blog" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
     <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center text-white reveal">
         <span class="text-accent mr-3"></span> Articles</h3>
@@ -1131,10 +1190,10 @@
         <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
             <p class="text-accent font-mono text-[10px] uppercase mb-2">𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩</p>
             <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
-                𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 — 𝙒𝙝𝙖𝙩'𝙨 𝙩𝙝𝙚 𝙍𝙚𝙖𝙡 𝘿𝙞𝙛𝙛𝙚𝙧𝙚𝙣𝙘𝙚?
+                𝘽𝙪𝙨𝙞𝙣𝙚𝙨𝙨 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 𝙫𝙨. 𝘿𝙖𝙩𝙖 𝘼𝙣𝙖𝙡𝙮𝙨𝙩 — 𝙒𝙝𝙖𝙩's 𝙩𝙝𝙚 𝙍𝙚𝙖𝙡 𝘿𝙞𝙛𝙛𝙚𝙧𝙚𝙣𝙘е?
             </h4>
             <p class="text-slate-400 text-sm mb-4 line-clamp-3">
-                In this article, I discuss the real different between business analyst and data analyst.
+                In this article, I discuss the real difference between business analyst and data analyst.
             </p>
             <div class="flex justify-between items-center text-xs">
                 <span class="text-slate-500">Published on LinkedIn</span>
@@ -1222,13 +1281,47 @@
                 </a>
             </div>
         </article>
-
+        
+        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
+            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
+            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                Moving Beyond Textbook Guesswork: Building a Data-Driven Market Basket Pipeline in R
+            </h4>
+            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
+                Data science should never exist in a vacuum. The true value of unsupervised learning comes when you translate association rules and set theory into direct, real-world corporate strategy.
+            </p>
+            <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-500">Published on LinkedIn</span>
+                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-r-marketbasketanalysis-ugcPost-7461935297665286144-huDD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
+                    <i class="fab fa-linkedin text-sm"></i> Post
+                </a>
+                <a href="https://goyumsamuditha.blogspot.com/2026/05/moving-beyond-textbook-guesswork.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
+                    <i class="fas fa-newspaper text-sm"></i> Read Article
+                </a>
+            </div>
+        </article>
+        
+        <article class="glass p-6 rounded-2xl card-hover border-l-4 border-accent reveal">
+            <p class="text-accent font-mono text-[10px] uppercase mb-2">Data Mining</p>
+            <h4 class="text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                Can Data Out-Taste a Human? What Clustering 6,000 Wines Taught Me About Machine Learning vs. Real-World Balance
+            </h4>
+            <p class="text-slate-400 text-sm mb-4 line-clamp-3">
+                6,000 wine profiles into an unsupervised data mining pipeline in R, stripped away all their identifying labels, and let K-Means and Hierarchical clustering algorithms hunt for patterns based purely on 11 lab chemistry attributes.
+            </p>
+            <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-500">Published on LinkedIn</span>
+                <a href="https://www.linkedin.com/posts/goyum-samuditha_datascience-machinelearning-rprogramming-ugcPost-7461949634052198400-YMqy?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline" title="View LinkedIn Post">
+                    <i class="fab fa-linkedin text-sm"></i> Post
+                </a>
+                <a href="https://goyumsamuditha.blogspot.com/2026/05/can-data-out-taste-human-what.html" target="_blank" class="text-accent hover:text-orange-400 text-xs font-bold flex items-center gap-1.5 transition" title="Read Full Article">
+                    <i class="fas fa-newspaper text-sm"></i> Read Article
+                </a>
+            </div>
+        </article>
     </div>
 </section>
 
-<!-- =============================================
-     RESUME DOWNLOAD
-     ============================================= -->
 <section id="resume-download" class="py-20 md:py-24 px-6 max-w-6xl mx-auto">
     <h3 class="text-3xl font-bold mb-12 text-center text-white no-underline reveal">
         <span class="text-accent mr-3"></span> Curriculum Vitae
@@ -1255,9 +1348,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     CONTACT
-     ============================================= -->
 <section id="contact" class="py-20 md:py-24 px-6 bg-slate-900/20">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16 reveal">
@@ -1324,9 +1414,6 @@
     </div>
 </section>
 
-<!-- =============================================
-     FOOTER
-     ============================================= -->
 <footer class="py-12 border-t border-slate-900 text-center text-slate-500 text-[10px] md:text-xs reveal">
     <p>© 2026 Goyum Samuditha. Western Province, Sri Lanka.</p>
     <div class="mt-6 flex justify-center space-x-6 text-lg">
@@ -1335,9 +1422,6 @@
     </div>
 </footer>
 
-<!-- =============================================
-     ALL JAVASCRIPT
-     ============================================= -->
 <script>
 /* ================================================================
    1. PARTICLE CANVAS
@@ -1608,7 +1692,7 @@
 })();
 
 /* ================================================================
-   11. PROJECT STATS ROLL-UP
+   11. PROJECT STATS ROLL-UP (Safely extended for project 3 and 4)
    ================================================================ */
 (function () {
     function rollUp(el, target, suffix, duration) {
@@ -1627,7 +1711,9 @@
 
     [
         { selector: '#projects .text-5xl.text-accent', target: 60.75, suffix: '%' },
-        { selector: '#projects .text-5xl.text-white\\/90', target: 94.1, suffix: '%' }
+        { selector: '#projects .text-5xl.text-white\\/90', target: 94.1, suffix: '%' },
+        { selector: '#projects .wine-accuracy', target: 99.2, suffix: '%' },
+        { selector: '#projects .mba-rules', target: 167, suffix: '' }
     ].forEach(({ selector, target, suffix }) => {
         const el = document.querySelector(selector);
         if (!el) return;
@@ -1976,9 +2062,6 @@
 })();
 </script>
 
-<!-- =============================================
-     ADDITIONAL KEYFRAMES
-     ============================================= -->
 <style>
     @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
     @keyframes timelineLineGrow { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }

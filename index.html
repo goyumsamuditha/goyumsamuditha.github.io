@@ -275,29 +275,6 @@
         .glass.card-hover:hover::before { left: 150%; }
 
         /* =============================================
-           CERTIFICATION BADGES
-           ============================================= */
-        .cert-badge {
-            opacity: 0;
-            transform: scale(0) rotate(-8deg);
-            transition: opacity 0.5s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .cert-badge.visible {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-            position: relative;
-            overflow: hidden;
-        }
-        .cert-badge.visible::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-            animation: certShimmer 3s 0.5s ease infinite;
-        }
-
-        /* =============================================
            BUTTON ANIMATIONS
            ============================================= */
         a.bg-accent, button.bg-accent {
@@ -538,6 +515,7 @@
             .reveal-right.visible, .reveal-scale.visible {
                 opacity: 1 !important;
                 transform: none !important;
+                transition: opacity 0.4s ease !important;
             }
             /* Keep cert badges visible on mobile */
             .cert-badge {
@@ -788,54 +766,59 @@
     </div>
 </section>
 
-<section id="projects" class="py-16 md:py-24 px-4 sm:px-6 bg-slate-900/40">
+<section id="projects" class="py-20 md:py-28 px-4 sm:px-6 bg-[#090d16] relative border-t border-b border-white/[0.02]">
     <div class="max-w-6xl mx-auto">
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-16 text-center text-white reveal">Featured Research & Engineering</h3>
+        <div class="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight reveal">Featured Research & Engineering</h3>
+            <div class="w-12 h-[2px] bg-accent mx-auto mt-4 rounded-full"></div>
+        </div>
         
-        <div class="space-y-6 sm:space-y-8 md:space-y-12">
+        <!-- BENTO MATRIX CONTAINER -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             
-            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-accent/30 hover:border-accent/60 transition-all duration-500 group reveal animated-border">
-                <div class="flex flex-col lg:flex-row gap-6 md:gap-10 items-center">
+            <!-- FLAGSHIP COMPONENT (Multi-Column Layout) -->
+            <div class="lg:col-span-2 glass border border-white/[0.06] rounded-[2rem] p-6 md:p-10 hover:border-accent/40 transition-all duration-500 group relative overflow-hidden animated-border flex flex-col justify-between reveal">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
                     <div class="lg:w-3/5 w-full">
-                        <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 md:mb-4">
-                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
-                            <div class="flex items-center gap-1.5">
-                                <span class="live-ping flex h-2 w-2 rounded-full bg-green-500"></span>
-                                <span class="text-green-400 text-[10px] font-bold uppercase tracking-tighter">Live on AWS</span>
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase bg-accent/10 px-3 py-1 rounded-full border border-accent/20">MSc Data Science Project</span>
+                            <div class="flex items-center gap-1.5 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+                                <span class="live-ping flex h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                <span class="text-green-400 text-[10px] font-bold uppercase tracking-wider">Live on AWS</span>
                             </div>
                         </div>
-                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Agentic AI Automated Trading Pipeline</h4>
-                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight group-hover:text-accent transition-colors duration-300">Agentic AI Automated Trading Pipeline</h4>
+                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 leading-relaxed">
                             An autonomous cloud ecosystem executing daily market analysis on 11 assets. Orchestrated with <span class="text-white font-semibold">four sequential AI agents</span> handling technical analysis, News NLP sentiment, signal generation, and risk governance.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Python 3.13</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Random Forest</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">AWS Lambda & RDS</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Streamlit</span>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="bg-slate-950/40 text-slate-400 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04] tech-tag">Python 3.13</span>
+                            <span class="bg-slate-950/40 text-slate-400 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04] tech-tag">Random Forest</span>
+                            <span class="bg-slate-950/40 text-slate-400 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04] tech-tag">AWS Lambda & RDS</span>
+                            <span class="bg-slate-950/40 text-slate-400 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04] tech-tag">Streamlit</span>
                         </div>
-                        <div class="flex flex-wrap items-center gap-4 sm:gap-6">
-                            <a href="http://51.21.249.209:8502/" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-5 sm:px-8 rounded-xl transition shadow-lg shadow-orange-500/20 text-xs sm:text-base">View Live Dashboard</a>
-                            <a href="https://github.com/goyumsamuditha/Automated_Trading_Agent.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
-                                <i class="fab fa-github mr-2"></i> View Repo
+                        <div class="flex flex-wrap items-center gap-4 md:gap-6">
+                            <a href="http://51.21.249.209:8502/" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-orange-500/10 text-xs sm:text-sm">View Live Dashboard</a>
+                            <a href="https://github.com/goyumsamuditha/Automated_Trading_Agent.git" target="_blank" class="text-slate-400 hover:text-accent font-bold flex items-center transition-colors text-xs sm:text-sm group/btn">
+                                <i class="fab fa-github mr-2 text-base group-hover/btn:rotate-12 transition-transform"></i> View Repo
                             </a>
                         </div>
                     </div>
                     <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/50 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center shadow-inner relative overflow-hidden reveal-scale">
-                            <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-brain text-5xl sm:text-7xl"></i>
+                        <div class="bg-slate-950/40 rounded-2xl md:rounded-[1.75rem] p-6 sm:p-8 border border-white/[0.03] text-center relative overflow-hidden shadow-2xl reveal-scale">
+                            <div class="absolute -top-6 -right-6 p-4 opacity-[0.02] text-white">
+                                <i class="fas fa-brain text-8xl"></i>
                             </div>
-                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number">60.75%</p>
-                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Model Accuracy</p>
-                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
+                            <p class="text-3xl sm:text-5xl font-black text-accent mb-2 tracking-tight neon-number">60.75%</p>
+                            <p class="text-slate-500 uppercase text-[10px] font-mono tracking-widest">Model Accuracy</p>
+                            <div class="mt-6 pt-6 border-t border-white/[0.04] grid grid-cols-2 gap-4">
                                 <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">13</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Features</p>
+                                    <p class="text-white font-semibold text-lg">13</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-mono tracking-wider">Features</p>
                                 </div>
                                 <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">8:00 AM</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Daily Trigger</p>
+                                    <p class="text-white font-semibold text-lg">8:00 AM</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-mono tracking-wider">Daily Trigger</p>
                                 </div>
                             </div>
                         </div>
@@ -843,120 +826,93 @@
                 </div>
             </div>
 
-            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row-reverse gap-6 md:gap-10 items-center">
-                    <div class="lg:w-3/5 w-full">
-                        <h4 class="text-accent font-mono text-[10px] mb-2 sm:mb-4 tracking-widest uppercase">Final Year Research</h4>
-                        <h5 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">Sentiment & Stock Price Impact Analysis</h5>
-                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-                            Research on the correlation between social media sentiment and market oscillations. Developed a custom pipeline to analyze Twitter sentiment impact on CSE stock movements.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8 text-white">
-                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">Python</span>
-                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">NLP</span>
-                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">TextBlob</span>
-                            <span class="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 text-[11px] tech-tag">Scikit-Learn</span>
-                        </div>
-                        <a href="https://github.com/goyumsamuditha/Final-Year-Project" target="_blank" class="text-accent font-bold flex items-center link-underline text-xs sm:text-base">
-                            <i class="fab fa-github mr-2"></i> View Repo
-                        </a>
+            <!-- BALANCED COLUMN GRID UNITS -->
+            <!-- RESEARCH PROJECT 2 -->
+            <div class="glass border border-white/[0.06] p-6 md:p-8 rounded-[1.75rem] hover:border-accent/40 transition-all duration-300 group flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-mono text-[10px] tracking-widest uppercase bg-accent/5 px-2.5 py-0.5 rounded-md border border-accent/10">Final Year Research</span>
                     </div>
-                    <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center reveal-scale">
-                            <p class="text-3xl sm:text-5xl font-black text-white/90 mb-1 sm:mb-2 neon-number">94.1%</p>
-                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Prediction Accuracy</p>
-                        </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3 text-white tracking-tight group-hover:text-accent transition-colors duration-300">Sentiment & Stock Price Impact Analysis</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Research on the correlation between social media sentiment and market oscillations. Developed a custom pipeline to analyze Twitter sentiment impact on CSE stock movements.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="bg-slate-950/40 text-slate-400 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Python</span>
+                        <span class="bg-slate-950/40 text-slate-400 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">NLP</span>
+                        <span class="bg-slate-950/40 text-slate-400 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">TextBlob</span>
+                        <span class="bg-slate-950/40 text-slate-400 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Scikit-Learn</span>
                     </div>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
+                    <div class="bg-slate-950/40 rounded-xl py-1.5 px-4 border border-white/[0.03] shadow-md reveal-scale">
+                        <p class="text-lg font-black text-white/90 font-mono tracking-tight neon-number">94.1%</p>
+                        <p class="text-[9px] text-slate-500 uppercase font-mono tracking-wider">Prediction Accuracy</p>
+                    </div>
+                    <a href="https://github.com/goyumsamuditha/Final-Year-Project" target="_blank" class="text-slate-400 hover:text-accent font-bold flex items-center transition-colors text-xs sm:text-sm group/btn">
+                        <i class="fab fa-github mr-2 group-hover/btn:rotate-12 transition-transform"></i> View Repo
+                    </a>
                 </div>
             </div>
 
-            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row gap-6 md:gap-10 items-center">
-                    <div class="lg:w-3/5 w-full">
-                        <div class="flex items-center gap-3 mb-3 md:mb-4">
-                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
-                        </div>
-                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Wine Chemical Profiling & Quality Analysis</h4>
-                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-                            An end-to-end data mining pipeline deciphering structural patterns across <span class="text-white font-semibold">6,000+ wine chemical profiles</span>. Engineered with unsupervised machine learning in R to evaluate data geometry using K-Means clustering, silhouette width optimization, and cophenetic tree linkage diagnostics.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">K-Means</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Hierarchical Clustering</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">PCA Diagnostics</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="https://github.com/goyumsamuditha/clustering-analysis.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
-                                <i class="fab fa-github mr-2"></i> View Repo
-                            </a>
-                        </div>
+            <!-- RESEARCH PROJECT 3 -->
+            <div class="glass border border-white/[0.06] p-6 md:p-8 rounded-[1.75rem] hover:border-accent/40 transition-all duration-300 group flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-mono text-[10px] tracking-widest uppercase bg-accent/5 px-2.5 py-0.5 rounded-md border border-accent/10">MSc Data Science Project</span>
                     </div>
-                    <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
-                            <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-wine-glass-alt text-5xl sm:text-7xl"></i>
-                            </div>
-                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number wine-accuracy">99.2%</p>
-                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Classification Accuracy</p>
-                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
-                                <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">11</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Chemical Features</p>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">0.768</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Cophenetic Linkage</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3 text-white tracking-tight group-hover:text-accent transition-colors duration-300">Wine Chemical Profiling & Quality Analysis</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        An end-to-end data mining pipeline deciphering structural patterns across <span class="text-white font-semibold">6,000+ wine chemical profiles</span>. Engineered with unsupervised machine learning in R to evaluate data geometry using K-Means clustering, silhouette width optimization, and cophenetic tree linkage diagnostics.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">R Script</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">K-Means</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Hierarchical</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">PCA Diagnostics</span>
                     </div>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
+                    <div class="bg-slate-950/40 rounded-xl py-1.5 px-4 border border-white/[0.03] shadow-md reveal-scale">
+                        <p class="text-lg font-black text-accent font-mono tracking-tight neon-number wine-accuracy">99.2%</p>
+                        <p class="text-[9px] text-slate-500 uppercase font-mono tracking-wider">Data Accuracy</p>
+                    </div>
+                    <a href="https://github.com/goyumsamuditha/clustering-analysis.git" target="_blank" class="text-slate-400 hover:text-accent font-bold flex items-center transition-colors text-xs sm:text-sm group/btn">
+                        <i class="fab fa-github mr-2 group-hover/btn:rotate-12 transition-transform"></i> View Repo
+                    </a>
                 </div>
             </div>
 
-            <div class="glass p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-800 hover:border-slate-700 transition-all reveal glass-glow">
-                <div class="flex flex-col lg:flex-row-reverse gap-6 md:gap-10 items-center">
-                    <div class="lg:w-3/5 w-full">
-                        <div class="flex items-center gap-3 mb-3 md:mb-4">
-                            <span class="text-accent font-mono text-[10px] tracking-widest uppercase">MSc Data Science Project</span>
-                        </div>
-                        <h4 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white group-hover:text-accent transition-colors">Data-Driven Market Basket Analytics Pipeline</h4>
-                        <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-                            An adaptive analytics engine designed to extract structural purchase patterns from massive e-commerce transactional logs. Bypasses textbook guesswork by utilizing distribution percentiles to programmatically determine a <span class="text-white font-semibold">1.71% support floor</span> and executing an empirical confidence sweep to locate the operational "elbow" optimization zone.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">R Script</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Apriori Engine</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Sparse Matrices</span>
-                            <span class="bg-slate-800/80 text-slate-300 text-[11px] px-2.5 py-1.5 rounded-lg border border-slate-700 tech-tag">Hyperparameter Tuning</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <a href="https://github.com/goyumsamuditha/online-retail-mba.git" target="_blank" class="text-accent font-bold flex items-center hover:underline link-underline text-xs sm:text-base">
-                                <i class="fab fa-github mr-2"></i> View Repo
-                            </a>
-                        </div>
+            <!-- RESEARCH PROJECT 4 -->
+            <div class="glass border border-white/[0.06] p-6 md:p-8 rounded-[1.75rem] hover:border-accent/40 transition-all duration-300 group flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-mono text-[10px] tracking-widest uppercase bg-accent/5 px-2.5 py-0.5 rounded-md border border-accent/10">MSc Data Science Project</span>
                     </div>
-                    <div class="lg:w-2/5 w-full">
-                        <div class="bg-slate-800/30 rounded-2xl md:rounded-3xl p-5 sm:p-8 border border-slate-700 text-center relative overflow-hidden reveal-scale">
-                            <div class="absolute top-0 right-0 p-4 opacity-10">
-                                <i class="fas fa-shopping-basket text-5xl sm:text-7xl"></i>
-                            </div>
-                            <p class="text-3xl sm:text-5xl font-black text-accent mb-1 sm:mb-2 neon-number mba-rules">167</p>
-                            <p class="text-slate-500 uppercase text-[10px] font-bold tracking-widest">Optimized Rules Discovered</p>
-                            <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-slate-700/50 grid grid-cols-2 gap-4">
-                                <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">1.71%</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Support Floor</p>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold text-sm sm:text-base">30.69</p>
-                                    <p class="text-[9px] sm:text-[10px] text-slate-500 uppercase">Maximum Lift</p>
-                                </div>
-                            </div>
-                        </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-3 text-white tracking-tight group-hover:text-accent transition-colors duration-300">Data-Driven Market Basket Analytics Pipeline</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        An adaptive analytics engine designed to extract structural purchase patterns from massive e-commerce transactional logs. Bypasses textbook guesswork by utilizing distribution percentiles to programmatically determine a <span class="text-white font-semibold">1.71% support floor</span> and executing an empirical confidence sweep to locate the operational "elbow" optimization zone.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">R Script</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Apriori Engine</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Sparse Matrices</span>
+                        <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">Hyperparameters</span>
                     </div>
                 </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
+                    <div class="bg-slate-950/40 rounded-xl py-1.5 px-4 border border-white/[0.03] shadow-md reveal-scale">
+                        <p class="text-lg font-black text-accent font-mono tracking-tight neon-number mba-rules">167</p>
+                        <p class="text-[9px] text-slate-500 uppercase font-mono tracking-wider">Rules Discovered</p>
+                    </div>
+                    <a href="https://github.com/goyumsamuditha/online-retail-mba.git" target="_blank" class="text-slate-400 hover:text-accent font-bold flex items-center transition-colors text-xs sm:text-sm group/btn">
+                        <i class="fab fa-github mr-2 group-hover/btn:rotate-12 transition-transform"></i> View Repo
+                    </a>
+                </div>
             </div>
+
+            <!-- FUTURE EXTENSION NODE ANCHOR -->
+            <!-- To scale your portfolio, duplicate a generic column grid unit card and paste it directly below this comment block. -->
 
         </div>
     </div>
@@ -1186,7 +1142,7 @@
 </section>
 
 <section id="blog" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
-    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-12 text-center text-white reveal">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-10 md:mb-16 text-center text-white reveal">
         <span class="text-accent mr-3"></span> Articles</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 stagger">
         
@@ -1350,6 +1306,30 @@
                 </div>
             </div>
         </article>
+
+	 <article class="glass p-5 sm:p-6 rounded-2xl card-hover border-l-4 border-accent reveal flex flex-col justify-between">
+            <div>
+                <p class="text-accent font-mono text-[10px] uppercase mb-2">DevOps VS MLOps VS LLMOps</p>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-3 text-white leading-tight article-title">
+                   Moving Beyond the Code: Why AI Forced the Evolution of DevOps
+                </h4>
+                <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-3 leading-relaxed">
+                    If you have spent any time in tech over the last decade, you know DevOps. It revolutionized how we build things, turning chaotic code deployments into a smooth, automated assembly line. For a long time, the golden rule was simple: If the code passes the automated tests, it’s ready for the world.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs pt-2 border-t border-white/5">
+                <span class="text-slate-500 text-[11px]">Published on LinkedIn</span>
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/posts/goyum-samuditha_devops-mlops-llmops-ugcPost-7470529965923581952-pOh6/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADopl3wBC3oHXJ3-Xcf1zYQmMeXzgCoaLs4" target="_blank" class="text-accent font-bold hover:underline inline-flex items-center gap-1 text-[11px]" title="View LinkedIn Post">
+                        <i class="fab fa-linkedin text-xs"></i> Post
+                    </a>
+                    <a href="https://goyumsamuditha.blogspot.com/2026/06/moving-beyond-code-why-ai-forced.html" target="_blank" class="text-accent hover:text-orange-400 text-[11px] font-bold flex items-center gap-1 transition" title="Read Full Article">
+                        <i class="fas fa-newspaper text-xs"></i> Read Article
+                    </a>
+                </div>
+            </div>
+        </article>
+
     </div>
 </section>
 
@@ -1741,8 +1721,8 @@
     }
 
     [
-        { selector: '#projects .text-5xl.text-accent', target: 60.75, suffix: '%' },
-        { selector: '#projects .text-5xl.text-white\\/90', target: 94.1, suffix: '%' },
+        { selector: '#projects .text-4xl.text-accent', target: 60.75, suffix: '%' },
+        { selector: '#projects .text-lg.text-white\\/90', target: 94.1, suffix: '%' },
         { selector: '#projects .wine-accuracy', target: 99.2, suffix: '%' },
         { selector: '#projects .mba-rules', target: 167, suffix: '' }
     ].forEach(({ selector, target, suffix }) => {
@@ -2122,7 +2102,7 @@
         pointer-events: none;
     }
     /* Project accuracy glow */
-    #projects .text-5xl.font-black.text-accent { animation: accuracyGlow 3s 2s ease-in-out infinite; }
+    #projects .text-4xl.font-black.text-accent { animation: accuracyGlow 3s 2s ease-in-out infinite; }
     /* Skill icon wrap transition */
     .skill-icon-wrap { transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), background 0.3s; }
     /* About stat card hover */

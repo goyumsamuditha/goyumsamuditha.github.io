@@ -1,0 +1,43 @@
+<div class="glass border border-white/[0.06] p-6 md:p-8 rounded-[1.75rem] hover:border-accent/40 transition-all duration-300 group flex flex-col justify-between reveal">
+    <div>
+        <div class="flex items-center justify-between mb-4">
+            <span class="text-accent font-mono text-[10px] tracking-widest uppercase bg-accent/5 px-2.5 py-0.5 rounded-md border border-accent/10">
+                {{ project.category }}
+            </span>
+            {% if project.status %}
+            <span class="text-green-400 text-[10px] font-bold uppercase tracking-wider">● {{ project.status }}</span>
+            {% endif %}
+        </div>
+        <h4 class="text-xl sm:text-2xl font-bold mb-3 text-white tracking-tight group-hover:text-accent transition-colors duration-300">
+            {{ project.title }}
+        </h4>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            {{ project.description }}
+        </p>
+        <div class="flex flex-wrap gap-1.5 mb-6">
+            {% for tech in project.technologies %}
+            <span class="bg-slate-950/40 text-slate-300 text-[11px] px-2.5 py-1 rounded-lg border border-white/[0.04] tech-tag">
+                {{ tech }}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
+        {% if project.metric_val %}
+        <div class="bg-slate-950/40 rounded-xl py-1.5 px-4 border border-white/[0.03] shadow-md reveal-scale">
+            <p class="text-lg font-black text-accent font-mono tracking-tight neon-number">{{ project.metric_val }}</p>
+            <p class="text-[9px] text-slate-500 uppercase font-mono tracking-wider">{{ project.metric_label }}</p>
+        </div>
+        {% endif %}
+        <div class="flex items-center gap-3">
+            <a href="{{ project.url | relative_url }}" class="text-white hover:text-accent font-bold text-xs sm:text-sm transition-colors">
+                View Project →
+            </a>
+            {% if project.github %}
+            <a href="{{ project.github }}" target="_blank" class="text-slate-400 hover:text-accent font-bold flex items-center transition-colors text-xs sm:text-sm">
+                <i class="fab fa-github"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

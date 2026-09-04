@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<article class="py-28 px-4 sm:px-6 max-w-4xl mx-auto min-h-screen">
+    <div class="mb-8">
+        <a href="{{ '/projects/' | relative_url }}" class="text-accent text-sm font-semibold hover:underline inline-flex items-center gap-1">
+            <i class="fas fa-arrow-left"></i> All Projects
+        </a>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="text-accent font-mono text-xs uppercase bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+            {{ page.category }}
+        </span>
+        {% if page.status %}
+        <div class="flex items-center gap-1.5 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+            <span class="live-ping flex h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            <span class="text-green-400 text-xs font-bold uppercase tracking-wider">{{ page.status }}</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">{{ page.title }}</h1>
+    <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">{{ page.description }}</p>
+
+    <div class="flex flex-wrap gap-2 mb-8">
+        {% for tech in page.technologies %}
+        <span class="bg-slate-950/40 text-slate-300 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04]">
+            {{ tech }}
+        </span>
+        {% endfor %}
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 mb-12 pb-8 border-b border-white/10">
+        {% if page.live_demo %}
+        <a href="{{ page.live_demo }}" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition text-sm">
+            Live Demo
+        </a>
+        {% endif %}
+        {% if page.github %}
+        <a href="{{ page.github }}" target="_blank" class="border border-slate-700 hover:border-accent text-slate-300 font-bold py-3 px-6 rounded-xl transition text-sm flex items-center gap-2">
+            <i class="fab fa-github"></i> Repository
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="prose prose-invert max-w-none text-slate-300 space-y-6 leading-relaxed">
+        {{ content }}
+    </div>
+</article>

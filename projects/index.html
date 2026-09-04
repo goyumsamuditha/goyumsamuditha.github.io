@@ -1,0 +1,18 @@
+---
+layout: default
+title: "All Projects"
+---
+<section class="py-28 px-4 sm:px-6 max-w-6xl mx-auto min-h-screen">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">All Projects</h1>
+        <p class="text-slate-400 mt-4 text-sm sm:text-base">A comprehensive directory of research implementations, predictive systems, and engineering pipelines.</p>
+        <div class="w-12 h-[2px] bg-accent mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {% assign all_projects = site.projects | sort: "order" %}
+        {% for project in all_projects %}
+            {% include project-card.html %}
+        {% endfor %}
+    </div>
+</section>

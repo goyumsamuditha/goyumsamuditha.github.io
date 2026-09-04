@@ -1,0 +1,60 @@
+<nav class="fixed w-full z-50 glass top-0 py-4 px-4 md:px-12 flex justify-between items-center">
+    <div class="flex items-center gap-2 shrink-0">
+        <a href="{{ '/' | relative_url }}" class="flex items-center gap-2">
+            <img src="{{ '/Favicon.png' | relative_url }}" alt="Goyum Samuditha logo" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover">
+            <div class="text-base md:text-xl font-bold tracking-tight text-white">GOYUM<span class="text-accent uppercase"> SAMUDITHA</span></div>
+        </a>
+    </div>
+    
+    <div class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="{{ '/' | relative_url }}#home" class="text-white hover:text-accent transition">Home</a>
+        <a href="{{ '/' | relative_url }}#about" class="text-white hover:text-accent transition">About</a>
+        <a href="{{ '/' | relative_url }}#education" class="text-white hover:text-accent transition">Education</a>                            
+        <a href="{{ '/' | relative_url }}#skills" class="text-white hover:text-accent transition">Skills</a>
+        <a href="{{ '/' | relative_url }}#experience" class="text-white hover:text-accent transition">Experience</a>
+        <a href="{{ '/' | relative_url }}#projects" class="text-white hover:text-accent transition">Projects</a>
+        <a href="{{ '/' | relative_url }}#certifications" class="text-white hover:text-accent transition">Certifications</a>
+        <a href="{{ '/' | relative_url }}#blog" class="text-white hover:text-accent transition">Articles</a>
+        <a href="{{ '/' | relative_url }}#resume-download" class="text-white hover:text-accent transition">Resume</a>
+        <a href="{{ '/' | relative_url }}#contact" class="text-white hover:text-accent transition">Contact</a>
+    </div>
+    
+    <div class="flex items-center gap-2 md:gap-4">
+        <a href="mailto:goyumsamuditha@gmail.com" class="bg-accent text-white px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-orange-600 transition shrink-0">Hire Me</a>
+        <button id="mobile-menu-btn" class="md:hidden text-white hover:text-accent focus:outline-none text-xl p-2 shrink-0" aria-label="Toggle Navigation Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div id="mobile-drawer" class="hidden absolute top-full left-0 w-full bg-[#0b0f1a]/95 backdrop-blur-lg border-b border-white/5 flex flex-col px-6 py-6 space-y-3 text-sm font-medium transition-all duration-300 shadow-2xl max-h-[85vh] overflow-y-auto">
+        <a href="{{ '/' | relative_url }}#home" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Home</a>
+        <a href="{{ '/' | relative_url }}#about" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">About</a>
+        <a href="{{ '/' | relative_url }}#education" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Education</a>
+        <a href="{{ '/' | relative_url }}#skills" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Skills</a>
+        <a href="{{ '/' | relative_url }}#experience" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Experience</a>
+        <a href="{{ '/' | relative_url }}#projects" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Projects</a>
+        <a href="{{ '/' | relative_url }}#certifications" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Certifications</a>
+        <a href="{{ '/' | relative_url }}#blog" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Articles</a>
+        <a href="{{ '/' | relative_url }}#resume-download" class="mobile-link text-white hover:text-accent transition py-2 border-b border-white/5">Resume</a>
+        <a href="{{ '/' | relative_url }}#contact" class="mobile-link text-white hover:text-accent transition py-2">Contact</a>
+    </div>
+</nav>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = menuBtn.querySelector('i');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    
+    menuBtn.addEventListener('click', () => {
+        drawer.classList.toggle('hidden');
+        menuIcon.className = drawer.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
+    });
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            drawer.classList.add('hidden');
+            menuIcon.className = 'fas fa-bars';
+        });
+    });
+</script>

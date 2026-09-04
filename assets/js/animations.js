@@ -338,13 +338,13 @@
    ================================================================ */
 (function () {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const navLinks = document.querySelectorAll('nav a[href*="#"]');
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
         navLinks.forEach(link => {
             link.style.color = '';
-            if (link.getAttribute('href') === '#' + current || link.getAttribute('href').endsWith('#' + current)) link.style.color = '#f97316';
+            if (link.getAttribute('href').endsWith('#' + current)) link.style.color = '#f97316';
         });
     }, { passive: true });
 })();
@@ -474,7 +474,7 @@
    ================================================================ */
 (function () {
     const isMobile = window.innerWidth < 768;
-    const items = document.querySelectorAll('#experience .space-y-12 > .relative');
+    const items = document.querySelectorAll('#experience > div > .relative');
     items.forEach((item, i) => {
         if (isMobile) {
             item.style.opacity = '0';
@@ -526,5 +526,248 @@
             }
         }, { threshold: 0.3 });
         obs.observe(li);
+    });
+})();
+/* ================================================================
+   11. PROJECT STATS ROLL-UP
+   ================================================================ */
+(function () {
+    function rollUp(el, target, suffix, duration) {
+        const isFloat = String(target).includes('.');
+        let start = null;
+        function step(ts) {
+            if (!start) start = ts;
+            const p = Math.min((ts - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 4);
+            el.textContent = (isFloat ? (ease * target).toFixed(2) : Math.floor(ease * target)) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('#projects .neon-number').forEach(el => {
+        const raw = el.textContent.trim();
+        const match = raw.match(/^([\d.]+)(.*)$/);
+        if (!match) return;
+        const target = parseFloat(match[1]);
+        const suffix = match[2] || '';
+        if (isNaN(target)) return;
+        el.textContent = '0' + suffix;
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) { rollUp(el, target, suffix, 2000); obs.unobserve(el); }
+        }, { threshold: 0.3 });
+        obs.observe(el);
+    });
+})();
+
+/* ================================================================
+   14. RIPPLE ON ACCENT BUTTONS
+   ================================================================ */
+(function () {
+    document.querySelectorAll('a.bg-accent, button.bg-accent').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const rect = btn.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);transform:scale(0);animation:rippleAnim 0.6s linear;pointer-events:none;width:120px;height:120px;left:${e.clientX - rect.left - 60}px;top:${e.clientY - rect.top - 60}px;`;
+            btn.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 700);
+        });
+    });
+})();
+
+/* ================================================================
+   15. MAGNETIC BUTTONS (desktop only)
+   ================================================================ */
+(function () {
+    if (window.innerWidth < 768) return;
+    document.querySelectorAll('nav .bg-accent, #home .bg-accent').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const rect = btn.getBoundingClientRect();
+            btn.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.25}px, ${(e.clientY - rect.top - rect.height / 2) * 0.25}px) scale(1.04)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+})();
+
+/* ================================================================
+   17. CURSOR TRAIL DOTS (desktop only)
+   ================================================================ */
+(function () {
+    if (window.innerWidth < 768) return;
+    const trailCount = 10;
+    const dots = [];
+    for (let i = 0; i < trailCount; i++) {
+        const d = document.createElement('div');
+        const size = 6 - i * 0.4;
+        d.style.cssText = `position:fixed;border-radius:50%;pointer-events:none;z-index:9998;width:${size}px;height:${size}px;background:rgba(249,115,22,${0.5 - i * 0.04});transform:translate(-50%,-50%);transition:left ${0.05 + i * 0.035}s ease,top ${0.05 + i * 0.035}s ease;`;
+        document.body.appendChild(d);
+        dots.push(d);
+    }
+    let mx = 0, my = 0;
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function updateTrail() { dots.forEach(d => { d.style.left = mx + 'px'; d.style.top = my + 'px'; }); requestAnimationFrame(updateTrail); }
+    updateTrail();
+})();
+
+/* ================================================================
+   19. CONTACT ICON BOUNCE
+   ================================================================ */
+(function () {
+    document.querySelectorAll('#contact .contact-icon').forEach(icon => {
+        const parent = icon.closest('.flex');
+        if (!parent) return;
+        parent.addEventListener('mouseenter', () => { icon.style.transform = 'scale(1.2) rotate(10deg)'; });
+        parent.addEventListener('mouseleave', () => { icon.style.transform = ''; });
+    });
+})();
+
+/* ================================================================
+   20. CONTACT TEXTAREA CYCLING PLACEHOLDER
+   ================================================================ */
+(function () {
+    const msgArea = document.querySelector('#contact textarea');
+    if (!msgArea) return;
+    const placeholders = ['Your Message...', 'Hi Goyum, I have a project idea...', "Let's collaborate on something amazing...", "I'd love to discuss a data science role...", 'Your Message...'];
+    let pIdx = 0, charPos = 0, deleting = false;
+    function cyclePlaceholder() {
+        if (document.activeElement === msgArea) { setTimeout(cyclePlaceholder, 100); return; }
+        const current = placeholders[pIdx];
+        if (!deleting) {
+            msgArea.placeholder = current.substring(0, charPos + 1);
+            charPos++;
+            if (charPos === current.length) { deleting = true; setTimeout(cyclePlaceholder, 1800); return; }
+            setTimeout(cyclePlaceholder, 50);
+        } else {
+            msgArea.placeholder = current.substring(0, charPos - 1);
+            charPos--;
+            if (charPos === 0) { deleting = false; pIdx = (pIdx + 1) % placeholders.length; setTimeout(cyclePlaceholder, 300); return; }
+            setTimeout(cyclePlaceholder, 25);
+        }
+    }
+    setTimeout(cyclePlaceholder, 2000);
+})();
+
+/* ================================================================
+   21. CONTACT SEND BUTTON ICON MORPH
+   ================================================================ */
+(function () {
+    const sendBtn = document.querySelector('#contact button[type="submit"]');
+    if (!sendBtn) return;
+    sendBtn.addEventListener('mouseenter', () => { sendBtn.innerHTML = '<i class="fas fa-paper-plane mr-2" style="animation:sendFly 0.5s ease forwards"></i> Send Message'; });
+    sendBtn.addEventListener('mouseleave', () => { sendBtn.innerHTML = 'Send Message'; });
+})();
+
+/* ================================================================
+   22. ARTICLE TITLE GLOW ON HOVER
+   ================================================================ */
+(function () {
+    document.querySelectorAll('article .article-title').forEach(h => {
+        h.style.transition = 'color 0.3s, text-shadow 0.3s';
+        const card = h.closest('article');
+        if (!card) return;
+        card.addEventListener('mouseenter', () => { h.style.color = '#f97316'; h.style.textShadow = '0 0 20px rgba(249,115,22,0.3)'; });
+        card.addEventListener('mouseleave', () => { h.style.color = ''; h.style.textShadow = ''; });
+    });
+})();
+
+/* ================================================================
+   23. CERTIFICATION NEON GLOW ON LABEL HOVER
+   ================================================================ */
+(function () {
+    document.querySelectorAll('#certifications .text-orange-400, #certifications .text-green-500').forEach(el => {
+        el.style.transition = 'text-shadow 0.3s';
+        el.addEventListener('mouseenter', () => { el.style.textShadow = '0 0 8px currentColor, 0 0 20px currentColor'; });
+        el.addEventListener('mouseleave', () => { el.style.textShadow = ''; });
+    });
+})();
+
+/* ================================================================
+   24. ABOUT TEXT HIGHLIGHT ANIMATED UNDERLINE
+   ================================================================ */
+(function () {
+    document.querySelectorAll('#about span.text-white.font-semibold').forEach(el => {
+        el.style.position = 'relative'; el.style.display = 'inline-block';
+        const underline = document.createElement('span');
+        underline.style.cssText = 'position:absolute;bottom:-2px;left:0;height:2px;width:0;background:linear-gradient(90deg,#f97316,#fb923c);transition:width 1.2s cubic-bezier(0.16,1,0.3,1);border-radius:2px;';
+        el.appendChild(underline);
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) { setTimeout(() => { underline.style.width = '100%'; }, 600); obs.unobserve(el); }
+        }, { threshold: 0.3 });
+        obs.observe(el);
+    });
+})();
+
+/* ================================================================
+   27. SKILL ICON SPIN ON CARD HOVER
+   ================================================================ */
+(function () {
+    document.querySelectorAll('#skills .skill-icon-wrap').forEach(wrap => {
+        const card = wrap.closest('.glass');
+        if (!card) return;
+        card.addEventListener('mouseenter', () => { wrap.style.transform = 'rotate(360deg) scale(1.2)'; wrap.style.background = 'rgba(249,115,22,0.2)'; });
+        card.addEventListener('mouseleave', () => { wrap.style.transform = ''; wrap.style.background = ''; });
+    });
+})();
+
+/* ================================================================
+   28. SECTION ENTRY PARTICLE BURST
+   ================================================================ */
+(function () {
+    if (window.innerWidth < 768) return;
+    const sectionHeadings = document.querySelectorAll('section h3');
+    sectionHeadings.forEach(h => {
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                for (let i = 0; i < 6; i++) {
+                    const particle = document.createElement('div');
+                    const angle = (i / 6) * Math.PI * 2;
+                    const distance = 40 + Math.random() * 30;
+                    particle.style.cssText = `
+                        position:fixed;width:4px;height:4px;border-radius:50%;
+                        background:#f97316;pointer-events:none;z-index:9999;
+                        left:${h.getBoundingClientRect().left + h.offsetWidth / 2}px;
+                        top:${h.getBoundingClientRect().top + h.offsetHeight / 2}px;
+                        transition:transform 0.8s ease-out,opacity 0.8s ease-out;
+                        transform:translate(0,0) scale(1);opacity:1;
+                    `;
+                    document.body.appendChild(particle);
+                    requestAnimationFrame(() => {
+                        particle.style.transform = `translate(${Math.cos(angle) * distance}px,${Math.sin(angle) * distance}px) scale(0)`;
+                        particle.style.opacity = '0';
+                    });
+                    setTimeout(() => particle.remove(), 900);
+                }
+                obs.unobserve(h);
+            }
+        }, { threshold: 0.8 });
+        obs.observe(h);
+    });
+})();
+
+/* ================================================================
+   29. GLASS CARD MOUSE-FOLLOW GRADIENT
+   ================================================================ */
+(function () {
+    if (window.innerWidth < 768) return;
+    document.querySelectorAll('.glass.card-hover').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(249,115,22,0.08) 0%, rgba(30,41,59,0.4) 60%)`;
+        });
+        card.addEventListener('mouseleave', () => { card.style.background = ''; });
+    });
+})();
+
+/* ================================================================
+   30. PROJECT CARD HOVER LIFT
+   ================================================================ */
+(function () {
+    if (window.innerWidth < 768) return;
+    document.querySelectorAll('#projects .glass').forEach(card => {
+        card.addEventListener('mouseenter', () => { card.style.transform = 'translateY(-6px)'; });
+        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
 })();

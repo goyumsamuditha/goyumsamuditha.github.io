@@ -2,6 +2,13 @@ body { background-color: #0b0f1a; color: #e2e8f0; font-family: 'Inter', sans-ser
 .text-accent { color: #f97316; }
 .bg-accent { background-color: #f97316; }
 .border-accent { border-color: #f97316; }
+
+/* Tailwind's CDN build has no "accent" color registered (no tailwind.config
+   extends it), so hover:text-accent / hover:border-accent utilities produce
+   no CSS on their own. These manual rules make those hover states work. */
+.hover\:text-accent:hover { color: #f97316; }
+.hover\:border-accent:hover { border-color: #f97316; }
+.hover\:border-accent\/40:hover { border-color: rgba(249, 115, 22, 0.4); }
 .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); }
 .card-hover:hover { transform: translateY(-5px); border-color: #f97316; transition: all 0.3s ease; }
 

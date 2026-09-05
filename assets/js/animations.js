@@ -41,7 +41,7 @@
     renderRain();
 
     let progress = 0;
-    const minDuration = 3000;
+    const minDuration = 2000;
     const startTime = performance.now();
 
     function tick() {

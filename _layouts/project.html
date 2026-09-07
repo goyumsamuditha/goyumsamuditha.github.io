@@ -1,71 +1,75 @@
-<!-- SEO: Primary Meta Tags -->
-<title>{% if page.title %}{{ page.title }} | {{ site.author }}{% else %}{{ site.title }}{% endif %}</title>
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta name="keywords" content="{{ site.keywords }}">
-<meta name="author" content="{{ site.author }}">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+---
+layout: default
+---
+<article class="py-28 px-4 sm:px-6 max-w-4xl mx-auto min-h-screen">
+    <div class="mb-8">
+        <a href="{{ '/projects/' | relative_url }}" class="text-accent text-sm font-semibold hover:underline inline-flex items-center gap-1">
+            <i class="fas fa-arrow-left"></i> All Projects
+        </a>
+    </div>
 
-<!-- SEO: Open Graph / Facebook / LinkedIn -->
-<meta property="og:site_name" content="{{ site.site_name }}">
-<meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
-<meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.author }}{% else %}{{ site.title }}{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:image" content="{{ site.url }}{{ page.image | default: '/Favicon.png' }}">
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="text-accent font-mono text-xs uppercase bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+            {{ page.category }}
+        </span>
+        {% if page.status %}
+        <div class="flex items-center gap-1.5 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+            <span class="live-ping flex h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            <span class="text-green-400 text-xs font-bold uppercase tracking-wider">{{ page.status }}</span>
+        </div>
+        {% endif %}
+    </div>
 
-<!-- SEO: Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
-<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.author }}{% else %}{{ site.title }}{% endif %}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta name="twitter:image" content="{{ site.url }}{{ page.image | default: '/Favicon.png' }}">
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">{{ page.title }}</h1>
+    <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">{{ page.description }}</p>
 
-<!-- SEO: Structured Data (Person Schema) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Goyum Samuditha",
-  "url": "{{ site.url }}/",
-  "image": "{{ site.url }}/assets/images/profile/profile.jpg",
-  "jobTitle": "Data Scientist & Business Analyst",
-  "email": "mailto:goyumsamuditha@gmail.com",
-  "alumniOf": {
-     "@type": "CollegeOrUniversity",
-     "name": "University of Moratuwa"
-    },
-  "sameAs": [
-    "https://github.com/goyumsamuditha",
-    "https://www.linkedin.com/in/goyum-samuditha"
-  ],
-  "knowsAbout": [
-    "Data Science",
-    "Machine Learning",
-    "MLOps",
-    "Business Analysis",
-    "Data Analytics",
-    "Python",
-    "R"
-  ]
-}
-</script>
+    <div class="flex flex-wrap gap-2 mb-8">
+        {% for tech in page.technologies %}
+        <span class="bg-slate-950/40 text-slate-300 text-xs px-3 py-1.5 rounded-xl border border-white/[0.04]">
+            {{ tech }}
+        </span>
+        {% endfor %}
+    </div>
 
-<!-- SEO: Structured Data (WebSite Schema) -->
-<!-- Google's "Site Names" feature reads this to decide what name to show
-     in search results. It must be a short, clean brand name (not a full
-     page title) or Google's confidence drops and it falls back to a
-     domain-based guess -- which for *.github.io sites often shows "GitHub". -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ site.site_name }}",
-  "alternateName": [
-    "{{ site.title }}",
-    "Goyum Samuditha Portfolio",
-    "goyumsamuditha.github.io"
-  ],
-  "url": "{{ site.url }}/"
-}
-</script>
+    <div class="flex flex-wrap items-center gap-4 mb-12 pb-8 border-b border-white/10">
+        {% if page.live_demo %}
+        <a href="{{ page.live_demo }}" target="_blank" class="bg-accent hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition text-sm">
+            Live Demo
+        </a>
+        {% endif %}
+        {% if page.github %}
+        <a href="{{ page.github }}" target="_blank" class="border border-slate-700 hover:border-accent text-slate-300 font-bold py-3 px-6 rounded-xl transition text-sm flex items-center gap-2">
+            <i class="fab fa-github"></i> Repository
+        </a>
+        {% endif %}
+    </div>
+
+    {% if page.video %}
+    <div class="mb-12">
+        <div class="flex items-center gap-3 mb-5">
+            <span class="w-1 h-6 bg-accent rounded-full"></span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Project Demo</h2>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-white/[0.08] bg-slate-950 shadow-2xl">
+            <video
+                class="w-full aspect-video object-cover"
+                controls
+                preload="metadata"
+                playsinline
+            >
+                <source src="{{ page.video | relative_url }}" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+        </div>
+
+        <p class="text-slate-500 text-xs mt-3">
+            Interactive demonstration of the project.
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="prose prose-invert max-w-none text-slate-300 space-y-6 leading-relaxed">
+        {{ content }}
+    </div>
+</article>

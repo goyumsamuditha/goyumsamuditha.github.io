@@ -13,6 +13,7 @@ metric_val: "60.75%"
 metric_label: "Model Accuracy"
 live_demo: "https://automatedtradingagent-gbphvzxgbtx7re79nrmkfm.streamlit.app"
 github: "https://github.com/goyumsamuditha/Automated_Trading_Agent.git"
+video: "/assets/videos/projects/automated-trading-agent.mp4"
 featured: true
 order: 1
 ---

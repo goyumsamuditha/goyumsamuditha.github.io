@@ -1,11 +1,16 @@
 ---
 layout: null
 experience:
+  - role: "Freelance Data Scientist & BI Developer"
+    company: "Self-Employed"
+    period: "June 2026 - Present"
+    description: "Deliver end-to-end data science and business intelligence projects for clients across multiple industries, including predictive modeling, dashboard development, and data pipeline automation."
+    dot_color: "bg-accent"
   - role: "Senior Business Analyst"
     company: "BitSlize Concepts (Pvt) Ltd"
-    period: "Jan 2025 - Present"
+    period: "Jan 2025 - June 2026"
     description: "Leads end-to-end process identification and gap analysis, delivering improvement recommendations across business units."
-    dot_color: "bg-accent"
+    dot_color: "bg-slate-700"
   - role: "Associate DevOps Engineer"
     company: "Dialog Axiata PLC"
     period: "Dec 2023 - Dec 2024"

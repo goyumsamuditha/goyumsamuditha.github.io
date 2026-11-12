@@ -1,6 +1,5 @@
 ---
 | **layout** | project |
-|---|---|
 | **title** | Explainable AI for Environmental Sound Classification |
 | **description** | An end-to-end deep learning system for environmental sound classification using 4,292 audio recordings from the DataSEC dataset. Developed with a PANNs CNN14 neural network, dual classification heads, and uncertainty-aware techniques, integrating confidence calibration, conformal prediction, and Grad-CAM explainability into an interactive Streamlit application. |
 | **category** | MSc Artificial Intelligence Project |

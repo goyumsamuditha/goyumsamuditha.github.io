@@ -19,7 +19,7 @@ technologies:
 metric_val: "92.03%"
 metric_label: "CNN14 Test Macro-F1"
 github: "https://github.com/goyumsamuditha/datasec-uncertainty-aware-sound-classification.git"
-youtube_id: XMGHOJjqk6fEQEay"
+youtube_id: "bn46z-kGJQs"
 featured: true 
 order: 3 
 ---

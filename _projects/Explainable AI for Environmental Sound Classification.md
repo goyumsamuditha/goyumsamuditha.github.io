@@ -21,6 +21,7 @@ metric_label: "CNN14 Test Macro-F1"
 github: "https://github.com/goyumsamuditha/datasec-uncertainty-aware-sound-classification.git"
 featured: true 
 order: 3 
+---
 
 ## Project Overview
 

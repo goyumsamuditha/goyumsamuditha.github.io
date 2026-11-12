@@ -70,6 +70,37 @@ layout: default
     {% endif %}
 
     <div class="prose prose-invert max-w-none text-slate-300 space-y-6 leading-relaxed">
+        
+{% if page.youtube_id %}
+<div class="mb-12">
+    <div class="flex items-center gap-3 mb-5">
+        <span class="w-1 h-6 bg-accent rounded-full"></span>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">
+            Project Demo
+        </h2>
+    </div>
+
+    <div class="relative w-full aspect-video overflow-hidden rounded-2xl border border-white/[0.08] bg-slate-950 shadow-2xl">
+        <iframe
+            class="absolute inset-0 w-full h-full"
+            src="https://www.youtube-nocookie.com/embed/{{ page.youtube_id }}"
+            title="{{ page.title | escape }} - Project Demonstration"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <a
+        href="https://www.youtube.com/watch?v={{ page.youtube_id }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 mt-4 text-sm text-accent hover:underline">
+        Watch on YouTube →
+    </a>
+</div>
+{% endif %}
         {{ content }}
     </div>
 </article>

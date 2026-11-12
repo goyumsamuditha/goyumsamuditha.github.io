@@ -1,18 +1,26 @@
 ---
-| **layout** | project |
-| **title** | Explainable AI for Environmental Sound Classification |
-| **description** | An end-to-end deep learning system for environmental sound classification using 4,292 audio recordings from the DataSEC dataset. Developed with a PANNs CNN14 neural network, dual classification heads, and uncertainty-aware techniques, integrating confidence calibration, conformal prediction, and Grad-CAM explainability into an interactive Streamlit application. |
-| **category** | MSc Artificial Intelligence Project |
-| **status** | Completed |
-| **technologies** | |
-| Python | PyTorch | PANNs CNN14 | Streamlit |
-| Deep Learning | CLAP | Scikit-learn | Grad-CAM |
-| Conformal Prediction | Audio Processing | LIME | |
-| **metric_val** | 92.03% |
-| **metric_label** | CNN14 Test Macro-F1 |
-| **github** | [Add your project GitHub repository URL] |
-| **featured** | true |
-| **order** | 3 |
+layout: project
+title: "Explainable AI for Environmental Sound Classification"
+description: "An end-to-end deep learning system for environmental sound classification using 4,292 audio recordings from the DataSEC dataset. Developed with a PANNs CNN14 neural network, dual classification heads, and uncertainty-aware techniques, integrating confidence calibration, conformal prediction, and Grad-CAM explainability into an interactive Streamlit application."
+category: "MSc Artificial Intelligence Project"
+status: "Completed"
+technologies:
+    - Python 
+    - PyTorch
+    - PANNs CNN14
+    - Streamlit
+    - Deep Learning
+    - CLAP
+    - Scikit-learn
+    - Grad-CAM
+    - Conformal Prediction
+    - Audio Processing
+    - LIME
+metric_val: "92.03%"
+metric_label: "CNN14 Test Macro-F1"
+github: "https://github.com/goyumsamuditha/datasec-uncertainty-aware-sound-classification.git"
+featured: true 
+order: 3 
 
 ## Project Overview
 
